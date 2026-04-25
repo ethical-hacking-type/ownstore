@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Comfort Factory - Premium men's clothing. Shirts, T-shirts, Pants, Shorts. Surprisingly Affordable! We Craft What We Sell.">
+  <title>Comfort Factory</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>👔</text></svg>">
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announcement-bar">
+  <div class="marquee-wrap">
+    <div class="marquee-text">
+      <span>Free Shipping on Orders Above ₹999</span>
+      <span>Served Over 2.5 Lakh Customers</span>
+      <span>We Craft What We Sell</span>
+      <span>All For Your Comfort</span>
+    </div>
+    <div class="marquee-text" aria-hidden="true">
+      <span>Free Shipping on Orders Above ₹999</span>
+      <span>Served Over 2.5 Lakh Customers</span>
+      <span>We Craft What We Sell</span>
+      <span>All For Your Comfort</span>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="logo"><a href="/">Comfort Factory</a></div>
+    <nav class="nav-desktop">
+      <a href="/" class="active">Home</a>
+      <a href="#shirts">Shirts</a>
+      <a href="#tshirts">Tshirts</a>
+      <a href="#pants">Pants</a>
+      <a href="#shorts">Shorts</a>
+    </nav>
+    <div class="header-icons">
+      <button id="search-btn" aria-label="Search">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      </button>
+      <a href="#" aria-label="Account">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </a>
+      <button id="cart-btn" aria-label="Cart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="cart-count">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<div class="mobile-overlay" id="mobile-overlay"></div>
+<nav class="nav-mobile" id="nav-mobile">
+  <button class="close-menu">✕</button>
+  <a href="/">Home</a>
+  <a href="#shirts">Shirts</a>
+  <a href="#tshirts">Tshirts</a>
+  <a href="#pants">Pants</a>
+  <a href="#shorts">Shorts</a>
+  <a href="#innerwear">Innerwear</a>
+</nav>
+
+<!-- HERO SLIDESHOW -->
+<section class="hero" id="hero">
+  <div class="hero-slides">
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=1400&h=800&fit=crop&q=80" alt="Premium men's fashion collection">
+      <div class="hero-overlay">
+        <p>Surprisingly Affordable!</p>
+        <h1>We Craft What<br>We Sell</h1>
+        <p class="hero-sub">All For Your Comfort</p>
+        <a href="#new-arrivals" class="hero-btn">SHOP NOW</a>
+      </div>
+    </div>
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1490578474895-699cd4e2cf59?w=1400&h=800&fit=crop&q=80" alt="Men's casual wear collection">
+      <div class="hero-overlay">
+        <p>New Season, New Style</p>
+        <h1>Premium Quality<br>Affordable Price</h1>
+        <p class="hero-sub">Served Over 2.5 Lakh Customers</p>
+        <a href="#new-arrivals" class="hero-btn">EXPLORE</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-dots">
+    <button class="dot active" aria-label="Slide 1"></button>
+    <button class="dot" aria-label="Slide 2"></button>
+  </div>
+</section>
+
+<!-- MARQUEE STRIP -->
+<div class="marquee-strip">
+  <div class="marquee-inner">
+    <div class="marquee-item">Served over 2.5 Lakh Customers</div>
+    <div class="marquee-item">Premium Quality Fabrics</div>
+    <div class="marquee-item">Designed & Made in India</div>
+    <div class="marquee-item">Express Shipping</div>
+    <div class="marquee-item">Served over 2.5 Lakh Customers</div>
+    <div class="marquee-item">Premium Quality Fabrics</div>
+    <div class="marquee-item">Designed & Made in India</div>
+    <div class="marquee-item">Express Shipping</div>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<section class="categories-section">
+  <div class="categories-scroll">
+    <a href="#shirts" class="category-card">
+      <div class="category-img"><img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=300&h=300&fit=crop&q=80" alt="Shirts"></div>
+      <span>Shirts</span>
+    </a>
+    <a href="#tshirts" class="category-card">
+      <div class="category-img"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&h=300&fit=crop&q=80" alt="Tshirts"></div>
+      <span>Tshirts</span>
+    </a>
+    <a href="#pants" class="category-card">
+      <div class="category-img"><img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=300&h=300&fit=crop&q=80" alt="Pants"></div>
+      <span>Pants</span>
+    </a>
+    <a href="#shorts" class="category-card">
+      <div class="category-img"><img src="https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=300&h=300&fit=crop&q=80" alt="Shorts"></div>
+      <span>Shorts</span>
+    </a>
+    <a href="#innerwear" class="category-card">
+      <div class="category-img"><img src="https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?w=300&h=300&fit=crop&q=80" alt="Innerwear"></div>
+      <span>Innerwear</span>
+    </a>
+  </div>
+</section>
+
+<!-- NEW ARRIVALS -->
+<div class="section-header" id="new-arrivals">
+  <h2>New Arrivals</h2>
+  <a href="#" class="view-all">View all</a>
+</div>
+<div class="products-grid">
+  <div class="product-card" data-id="p_001">
+    <a href="#" class="product-image">
+      <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&h=540&fit=crop&q=80" alt="Linen Pants">
+      <span class="product-badge">New</span>
+    </a>
+    <div class="product-info">
+      <h3>LINEN PANTS MPJ0089</h3>
+      <div class="product-price"><span class="current">₹1,299</span><span class="original">₹1,999</span><span class="discount">35% off</span></div>
+      <div class="product-actions">
+        <button class="btn-add-cart">Add to Cart</button>
+        <button class="btn-buy-now">Buy it Now</button>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" data-id="p_002">
+    <a href="#" class="product-image">
+      <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=540&fit=crop&q=80" alt="Imported Stripes Shirt">
+      <span class="product-badge">New</span>
+    </a>
+    <div class="product-info">
+      <h3>IMPORTED STRIPES SHIRT MSC0991</h3>
+      <div class="product-price"><span class="current">₹899</span><span class="original">₹1,499</span><span class="discount">40% off</span></div>
+      <div class="product-actions">
+        <button class="btn-add-cart">Add to Cart</button>
+        <button class="btn-buy-now">Buy it Now</button>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" data-id="p_003">
+    <a href="#" class="product-image">
+      <img src="https://images.unsplash.com/photo-1603252109303-2751441dd157?w=400&h=540&fit=crop&q=80" alt="Oxford Shirt">
+      <span class="product-badge">New</span>
+    </a>
+    <div class="product-info">
+      <h3>OXFORD SHIRT MSC1104</h3>
+      <div class="product-price"><span class="current">₹799</span><span class="original">₹1,299</span><span class="discount">38% off</span></div>
+      <div class="product-actions">
+        <button class="btn-add-cart">Add to Cart</button>
+        <button class="btn-buy-now">Buy it Now</button>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" data-id="p_004">
+    <a href="#" class="product-image">
+      <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=540&fit=crop&q=80" alt="Lycra Denim Pants">
+      <span class="product-badge">New</span>
+    </a>
+    <div class="product-info">
+      <h3>NO FADE BLACK LYCRA DENIM PANTS MDP0175</h3>
+      <div class="product-price"><span class="current">₹1,499</span><span class="original">₹2,199</span><span class="discount">32% off</span></div>
+      <div class="product-actions">
+        <button class="btn-add-cart">Add to Cart</button>
+        <button class="btn-buy-now">Buy it Now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STORE BANNER -->
+<section class="store-banner">
+  <div class="store-banner-inner">
+    <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=1400&h=500&fit=crop&q=80" alt="View our stores">
+    <div class="store-banner-overlay">
+      <h2>Visit Our Stores</h2>
+      <a href="#">View Stores</a>
+    </div>
+  </div>
+</section>
+
+<!-- SHIRTS SECTION -->
+<div class="section-header" id="shirts">
+  <h2>Shirts</h2>
+  <a href="#" class="view-all">View all</a>
+</div>
+<div class="products-grid">
+  <div class="product-card" data-id="p_002">
+    <a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=540&fit=crop&q=80" alt="Stripes Shirt"></a>
+    <div class="product-info">
+      <h3>IMPORTED STRIPES SHIRT MSC0991</h3>
+      <div class="product-price"><span class="current">₹899</span><span class="original">₹1,499</span><span class="discount">40% off</span></div>
+      <div class="product-actions"><button class="btn-add-cart">Add to Cart</button><button class="btn-buy-now">Buy it Now</button></div>
+    </div>
+  </div>
+  <div class="product-card" data-id="p_003">
+    <a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1603252109303-2751441dd157?w=400&h=540&fit=crop&q=80" alt="Oxford Shirt"></a>
+    <div class="product-info">
+      <h3>OXFORD SHIRT MSC1104</h3>
+      <div class="product-price"><span class="current">₹799</span><span class="original">₹1,299</span><span class="discount">38% off</span></div>
+      <div class="product-actions"><button class="btn-add-cart">Add to Cart</button><button class="btn-buy-now">Buy it Now</button></div>
+    </div>
+  </div>
+  <div class="product-card" data-id="p_005">
+    <a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1598033129183-c4f50c736c10?w=400&h=540&fit=crop&q=80" alt="Linen Shirt"></a>
+    <div class="product-info">
+      <h3>LINEN SHIRTS MSC1057</h3>
+      <div class="product-price"><span class="current">₹999</span><span class="original">₹1,599</span><span class="discount">37% off</span></div>
+      <div class="product-actions"><button class="btn-add-cart">Add to Cart</button><button class="btn-buy-now">Buy it Now</button></div>
+    </div>
+  </div>
+  <div class="product-card" data-id="p_006">
+    <a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1589310243389-96a5483213a8?w=400&h=540&fit=crop&q=80" alt="Denim Shirt"></a>
+    <div class="product-info">
+      <h3>DENIM SHIRTS</h3>
+      <div class="product-price"><span class="current">₹1,099</span><span class="original">₹1,699</span><span class="discount">35% off</span></div>
+      <div class="product-actions"><button class="btn-add-cart">Add to Cart</button><button class="btn-buy-now">Buy it Now</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- PANTS SECTION -->
+<div class="section-header" id="pants">
+  <h2>Pants</h2>
+  <a href="#" class="view-all">View all</a>
+</div>
+<div class="products-grid">
+  <div class="product-card" data-id="p_001">
+    <a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&h=540&fit=crop&q=80" alt="Linen Pants"></a>
+    <div class="product-info">
+      <h3>LINEN PANTS MPJ0089</h3>
+      <div class="product-price"><span class="current">₹1,299</span><span class="original">₹1,999</span><span class="discount">35% off</span></div>
+      <div class="product-actions"><button class="btn-add-cart">Add to Cart</button><button class="btn-buy-now">Buy it Now</button></div>
+    </div>
+  </div>
+  <div class="product-card" data-id="p_004">
+    <a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=540&fit=crop&q=80" alt="Black Denim"></a>
+    <div class="product-info">
+      <h3>NO FADE BLACK LYCRA DENIM PANTS MDP0175</h3>
+      <div class="product-price"><span class="current">₹1,499</span><span class="original">₹2,199</span><span class="discount">32% off</span></div>
+      <div class="product-actions"><button class="btn-add-cart">Add to Cart</button><button class="btn-buy-now">Buy it Now</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <h2>Don't just take our word for it</h2>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"Amazing quality shirts at such affordable prices! The linen fabric feels premium and the fit is perfect. Will definitely order again."</p>
+      <div class="testimonial-author">Rahul M. <span>— Kochi</span></div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"Fast delivery and excellent packaging. The denim pants are exactly as shown in the pictures. Best online shopping experience!"</p>
+      <div class="testimonial-author">Arun K. <span>— Calicut</span></div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"I've been a loyal customer for over a year. Their in-house manufacturing really shows in the quality. Highly recommended!"</p>
+      <div class="testimonial-author">Faisal N. <span>— Malappuram</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item">
+    <button class="faq-question">What is your return & exchange policy?<span class="faq-icon">+</span></button>
+    <div class="faq-answer"><div class="faq-answer-inner">We don't accept returns or exchanges for size issues, as we provide a detailed size chart before purchase. If the product arrives damaged, incorrect, or in the wrong size, you can return it. Please record a quick 360° video while opening your package. If there's a problem, contact us right away and send the item back within 3 days. Once we receive it, we'll issue a refund or replacement.</div></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-question">How long does shipping take?<span class="faq-icon">+</span></button>
+    <div class="faq-answer"><div class="faq-answer-inner">Orders placed before 12:00 PM are shipped the same day. Orders placed after 12:00 PM are shipped the next working day. Delivery within Kerala usually takes 1–3 working days. For locations outside Kerala, delivery takes 1–4 working days. We use express courier services for faster shipping. Once shipped, a tracking ID will be shared so you can follow your order until it reaches your doorstep.</div></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-question">Where are your products manufactured?<span class="faq-icon">+</span></button>
+    <div class="faq-answer"><div class="faq-answer-inner">All our products are designed and manufactured in our own in-house facility in India. While some of the fabrics are sourced internationally (such as from China and Thailand), the entire design and production process is carried out by our team. Each item goes through strict quality checks to ensure it meets our standards before being delivered to you.</div></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-question">What are the shipping charges?<span class="faq-icon">+</span></button>
+    <div class="faq-answer"><div class="faq-answer-inner">We charge a flat shipping fee of ₹55 on all orders. At the moment, we accept only prepaid orders and do not offer Cash on Delivery. If a return is required due to a mistake on our side (such as a wrong or damaged item), we will cover the return shipping cost and refund the full amount.</div></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-question">Are there any Final Sale items?<span class="faq-icon">+</span></button>
+    <div class="faq-answer"><div class="faq-answer-inner">Yes, items marked as Final Sale cannot be returned or exchanged. These include discounted and clearance products. Final Sale items will always be clearly mentioned at the time of purchase.</div></div>
+  </div>
+<!-- CONTACT US -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="contact-text">
+      <h2>Contact Us</h2>
+      <p>Please enter your details below. Whether it's an inquiry or an order, we will reach out to you as soon as possible.</p>
+    </div>
+    <div class="contact-form-container">
+      <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(window.submitted){ document.getElementById('success-overlay').classList.add('open'); document.getElementById('gform').reset(); window.submitted=false; document.getElementById('contact-submit-btn').textContent='Submit Details'; }"></iframe>
+      <form id="gform" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfOaalLTMetGlfoupTT_rlMfzmi4UVJ6FrCqcVnvdjJSXenfg/formResponse" method="POST" target="hidden_iframe" onsubmit="window.submitted=true; document.getElementById('contact-submit-btn').textContent='Submitting...';">
+        <div class="form-row">
+          <input type="text" name="entry.1939446848" placeholder="Full Name" class="contact-input" required>
+          <input type="tel" name="entry.673243831" placeholder="Phone Number" class="contact-input" required>
+        </div>
+        <input type="email" name="entry.325896176" placeholder="Email Address" class="contact-input" required>
+        <textarea name="entry.875857797" placeholder="Address (House No, Building, Street)" class="contact-input" rows="3" required></textarea>
+        <div class="form-row">
+          <input type="text" name="entry.1460563414" placeholder="City" class="contact-input" required>
+          <input type="text" name="entry.473302059" placeholder="PIN Code" class="contact-input" required>
+        </div>
+        <button type="submit" class="btn-submit" id="contact-submit-btn">Submit Details</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Contact Info</h4>
+      <div class="footer-contact-info">
+        <p><strong>Phone:</strong> +91 8075491754</p>
+        <p><strong>Email:</strong> cf.online@comfortfactory.in</p>
+        <p style="margin-top:12px"><strong>Manufactured & Marketed by:</strong><br>
+          COMFORT FACTORY<br>(Owned By BLUE TYGA FASHION PRIVATE LIMITED)<br>
+          Floor No.: 43/2856, 43/2876, 43/2877<br>
+          Building No.: 43/2853, 43/2854, 43/2855<br>
+          Kolathara Po, Cheruvannur<br>
+          Feroke, Kozhikode<br>
+          Kerala — 673655</p>
+        <p style="margin-top:8px"><strong>Customer Care:</strong><br>cf.online@comfortfactory.in<br>+91 9249524744</p>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="#contact">Contact Us</a>
+      <a href="#">Return & Refunds</a>
+      <a href="#">FAQs</a>
+      <a href="#">My Account</a>
+    </div>
+    <div class="footer-col">
+      <h4>Policies</h4>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Refund Policy</a>
+      <a href="#">Shipping Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+    <div class="footer-col">
+      <h4>Our Stores</h4>
+      <a href="#">Kottakkal</a>
+      <a href="#">Koduvally</a>
+      <a href="#">Kondotty</a>
+      <a href="#">Manjeri</a>
+      <a href="#">Modern Bazar</a>
+      <a href="#">Perinthalmanna</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Comfort Factory. All rights reserved.</span>
+    <span>Powered by Comfort Factory</span>
+  </div>
+</footer>
+
+<!-- SEARCH OVERLAY -->
+<div id="search-overlay" style="position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:5000;display:flex;align-items:flex-start;justify-content:center;padding-top:120px;opacity:0;visibility:hidden;transition:all .3s;">
+  <div style="width:90%;max-width:600px;">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <input id="search-input" type="text" placeholder="Search products..." style="flex:1;padding:16px 20px;border:none;border-bottom:2px solid #fff;background:transparent;color:#fff;font-size:1.1rem;outline:none;font-family:inherit;">
+      <button id="search-close" style="color:#fff;font-size:1.8rem;background:none;border:none;cursor:pointer;">✕</button>
+    </div>
+  </div>
+</div>
+
+<!-- CART DRAWER -->
+<div class="cart-drawer-overlay"></div>
+<div class="cart-drawer">
+  <div class="cart-drawer-header">
+    <h3>Your Cart</h3>
+    <button class="cart-drawer-close">✕</button>
+  </div>
+  <div class="cart-drawer-body">
+    <p>Your cart is empty</p>
+  </div>
+  <div class="cart-drawer-footer">
+    <div class="cart-total-row">
+      <span>Total:</span>
+      <span id="cart-total-price">₹0</span>
+    </div>
+    <button id="cart-checkout-btn">Checkout</button>
+  </div>
+</div>
+
+<!-- CHECKOUT OVERLAY -->
+<div class="checkout-overlay" id="checkout-overlay">
+  <div class="checkout-modal">
+    <button class="checkout-close" id="checkout-close">✕</button>
+    <div class="checkout-layout">
+      <!-- Order Summary -->
+      <div class="checkout-summary">
+        <h3>Order Summary</h3>
+        <div class="checkout-items" id="checkout-items-container">
+          <!-- Items will be injected here -->
+        </div>
+        <div class="checkout-totals">
+          <div class="flex-row"><span>Subtotal</span><span id="checkout-subtotal">₹0</span></div>
+          <div class="flex-row"><span>Shipping</span><span>₹55</span></div>
+          <div class="flex-row total-row"><span>Total</span><span id="checkout-total">₹0</span></div>
+        </div>
+      </div>
+      
+      <!-- Payment Form -->
+      <div class="checkout-form-container">
+        <h3>Payment & Shipping</h3>
+        <form id="checkout-form">
+          <div class="form-group">
+            <label>Contact Information</label>
+            <input type="email" id="c-email" placeholder="Email Address" required>
+            <input type="tel" id="c-phone" placeholder="Phone Number" required>
+          </div>
+          <div class="form-group">
+            <label>Shipping Address</label>
+            <input type="text" id="c-name" placeholder="Full Name" required>
+            <textarea id="c-address" placeholder="Address (House No, Building, Street)" required></textarea>
+            <div class="form-row">
+              <input type="text" id="c-city" placeholder="City" required>
+              <input type="text" id="c-pin" placeholder="PIN Code" required>
+            </div>
+          </div>
+          <div class="form-group" style="margin-top: 24px;">
+            <div style="margin-bottom: 12px;">
+              <h2 style="font-size: 1.15rem; font-weight: 600; margin-bottom: 4px; color: #333;">Payment</h2>
+              <p style="font-size: 0.85rem; color: #666; margin: 0;">All transactions are secure and encrypted.</p>
+            </div>
+            
+            <div style="border: 1px solid #d9d9d9; border-radius: 6px; overflow: hidden; background: #fff;">
+              <!-- Header -->
+              <div style="padding: 16px; display: flex; justify-content: space-between; align-items: center; background: #f4f6f8; border-bottom: 1px solid #d9d9d9;">
+                <span style="font-weight: 500; color: #333; font-size: 0.95rem;">Easebuzz</span>
+                <div style="display: flex; gap: 6px;">
+                  <!-- VISA -->
+                  <svg width="34" height="22" viewBox="0 0 34 22" style="border:1px solid #e0e0e0; border-radius:3px; background:#fff;"><rect width="34" height="22" fill="#fff" rx="3"/><text x="4" y="15" font-size="11" font-family="Arial, sans-serif" font-weight="bold" fill="#1434CB" letter-spacing="-0.5">VISA</text></svg>
+                  <!-- Mastercard -->
+                  <svg width="34" height="22" viewBox="0 0 34 22" style="border:1px solid #e0e0e0; border-radius:3px; background:#fff;"><rect width="34" height="22" fill="#fff" rx="3"/><circle cx="13" cy="11" r="6" fill="#EB001B"/><circle cx="21" cy="11" r="6" fill="#F79E1B" opacity="0.8"/></svg>
+                  <!-- Bank icon -->
+                  <svg width="34" height="22" viewBox="0 0 34 22" style="border:1px solid #e0e0e0; border-radius:3px; background:#fff;"><rect width="34" height="22" fill="#fff" rx="3"/><path d="M17 6l6 4h-12l6-4zM11 12h12v3H11v-3z" fill="#333"/></svg>
+                </div>
+              </div>
+              <!-- Body -->
+              <div style="padding: 32px 24px; text-align: center; background: #fafafa; font-size: 0.9rem; color: #555; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.2" style="margin-bottom: 16px;"><rect x="3" y="5" width="18" height="14" rx="2" ry="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                You'll be redirected to Easebuzz to complete your purchase.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-top: 24px; margin-bottom: 24px;">
+            <h2 style="font-size: 1.15rem; font-weight: 600; margin-bottom: 12px; color: #333;">Billing address</h2>
+            <div style="border: 1px solid #d9d9d9; border-radius: 6px; overflow: hidden; background: #fff;">
+              <label style="display: flex; align-items: center; padding: 16px; border-bottom: 1px solid #d9d9d9; cursor: pointer; margin: 0; background: #f4f6f8;">
+                <input type="radio" name="billing_address" value="same" checked style="margin-right: 12px; accent-color: #0058a3; width: 16px; height: 16px;">
+                <span style="font-weight: 500; font-size: 0.95rem; color: #333;">Same as shipping address</span>
+              </label>
+              <label style="display: flex; align-items: center; padding: 16px; cursor: pointer; margin: 0;">
+                <input type="radio" name="billing_address" value="different" style="margin-right: 12px; accent-color: #0058a3; width: 16px; height: 16px;">
+                <span style="font-weight: 400; font-size: 0.95rem; color: #555;">Use a different billing address</span>
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-pay-now" id="btn-pay-now">Pay ₹0</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SUCCESS POPUP -->
+<div class="success-overlay" id="success-overlay">
+  <div class="success-modal">
+    <div class="success-icon">✓</div>
+    <h3>Thank You!</h3>
+    <p>Your details have been successfully submitted. We will reach out to you shortly.</p>
+    <button class="btn-close-success" id="btn-close-success">Continue</button>
+  </div>
+</div>
+
+<script src="products.js"></script>
+<script src="main.js"></script>
+<script>
+  // Search overlay open/close style toggle
+  const so = document.getElementById('search-overlay');
+  document.getElementById('search-btn').addEventListener('click', () => { so.style.opacity='1'; so.style.visibility='visible'; });
+  document.getElementById('search-close').addEventListener('click', () => { so.style.opacity='0'; so.style.visibility='hidden'; });
+
+  // Close Success Popup
+  document.getElementById('btn-close-success').addEventListener('click', () => {
+    document.getElementById('success-overlay').classList.remove('open');
+  });
+</script>
+</body>
+</html>
