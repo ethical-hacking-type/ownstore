@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Registration | Comfort Factory</title>
+  <meta name="description" content="Create your Comfort Factory customer account. Enjoy seamless shopping, saved delivery addresses, order tracking, and exclusive fashion drops.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>👔</text></svg>">
+  <style>
+    :root {
+      --cf-gold: #d4af37;
+      --cf-gold-dark: #b8860b;
+      --cf-gold-light: #f3cf65;
+      --cf-black: #0c0d10;
+      --cf-surface: #ffffff;
+      --cf-border: #e5e7eb;
+      --cf-text-main: #111827;
+      --cf-text-muted: #6b7280;
+      --cf-danger: #ef4444;
+      --cf-success: #10b981;
+    }
+
+    body {
+      background-color: #faf9f6;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(212, 175, 55, 0.05) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(17, 24, 39, 0.03) 0px, transparent 50%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top minimalist luxury navbar */
+    .auth-header {
+      padding: 22px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffff;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .auth-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #111;
+      text-decoration: none;
+    }
+    .auth-nav-link {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--cf-text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .auth-nav-link a {
+      color: var(--cf-gold-dark);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
+    /* Container */
+    .register-container {
+      max-width: 820px;
+      width: 92%;
+      margin: 40px auto 60px auto;
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.07), 0 0 20px rgba(212, 175, 55, 0.05);
+      padding: 48px;
+    }
+
+    .register-title-area {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    .register-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--cf-gold-dark);
+      background: rgba(212, 175, 55, 0.1);
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+    .register-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 8px;
+    }
+    .register-subtitle {
+      color: var(--cf-text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Section divider headers */
+    .form-section-title {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-weight: 700;
+      color: #111;
+      margin: 28px 0 16px 0;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #f0f0f0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .form-section-title span.step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--cf-black);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+    .form-grid.grid-full {
+      grid-template-columns: 1fr;
+    }
+    .form-grid.grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      position: relative;
+    }
+    .form-field.full-col {
+      grid-column: 1 / -1;
+    }
+    .form-field label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #374151;
+    }
+    .form-field label span.req {
+      color: var(--cf-danger);
+    }
+
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .input-wrapper input,
+    .input-wrapper select {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1.5px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-family: inherit;
+      color: #111;
+      background: #fff;
+      transition: all 0.2s ease;
+      outline: none;
+    }
+    .input-wrapper input:focus,
+    .input-wrapper select:focus {
+      border-color: var(--cf-gold);
+      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+    }
+    .input-wrapper input.invalid {
+      border-color: var(--cf-danger);
+      background-color: #fef2f2;
+    }
+    .input-wrapper input.valid {
+      border-color: var(--cf-success);
+    }
+
+    .password-toggle-btn {
+      position: absolute;
+      right: 12px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #6b7280;
+      padding: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.2s;
+    }
+    .password-toggle-btn:hover {
+      color: #111;
+    }
+
+    .field-hint {
+      font-size: 0.75rem;
+      color: #6b7280;
+      margin-top: 3px;
+    }
+    .field-error {
+      font-size: 0.75rem;
+      color: var(--cf-danger);
+      margin-top: 3px;
+      display: none;
+    }
+
+    /* Password Strength Indicator */
+    .strength-meter {
+      height: 4px;
+      width: 100%;
+      background: #e5e7eb;
+      border-radius: 2px;
+      margin-top: 6px;
+      overflow: hidden;
+      display: flex;
+    }
+    .strength-meter-fill {
+      height: 100%;
+      width: 0%;
+      transition: width 0.3s ease, background-color 0.3s ease;
+    }
+
+    /* Terms checkbox */
+    .terms-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-top: 24px;
+      padding: 16px;
+      background: #f9fafb;
+      border-radius: 8px;
+      border: 1px solid #e5e7eb;
+    }
+    .terms-row input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--cf-black);
+      cursor: pointer;
+      margin-top: 2px;
+    }
+    .terms-row label {
+      font-size: 0.85rem;
+      color: #374151;
+      line-height: 1.45;
+      cursor: pointer;
+    }
+    .terms-row label a {
+      color: var(--cf-gold-dark);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
+    /* Submit Button */
+    .btn-register-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--cf-black);
+      color: #ffffff;
+      border: 1px solid var(--cf-black);
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      margin-top: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .btn-register-submit:hover {
+      background: #222;
+      border-color: #222;
+      box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.2);
+    }
+    .btn-register-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    /* OTP Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      padding: 20px;
+    }
+    .modal-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+    .modal-card {
+      background: #ffffff;
+      width: 100%;
+      max-width: 480px;
+      border-radius: 16px;
+      padding: 40px 32px;
+      text-align: center;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      transform: translateY(20px) scale(0.97);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .modal-overlay.open .modal-card {
+      transform: translateY(0) scale(1);
+    }
+    .otp-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(212, 175, 55, 0.12);
+      border: 1.5px solid var(--cf-gold);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      color: var(--cf-gold-dark);
+    }
+    .otp-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 8px;
+    }
+    .otp-desc {
+      color: var(--cf-text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+    .otp-inputs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .otp-digit {
+      width: 48px;
+      height: 56px;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      border: 2px solid #d1d5db;
+      border-radius: 8px;
+      background: #fafafa;
+      outline: none;
+      transition: all 0.2s;
+    }
+    .otp-digit:focus {
+      border-color: var(--cf-gold);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+    }
+
+    /* Dev notification pill for test verification */
+    .dev-otp-banner {
+      background: #fffbeb;
+      border: 1px dashed #d97706;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 0.82rem;
+      color: #92400e;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .dev-otp-code {
+      font-family: monospace;
+      font-weight: 700;
+      font-size: 1.05rem;
+      background: #fef3c7;
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: 2px;
+    }
+
+    .btn-verify-otp {
+      width: 100%;
+      padding: 14px;
+      background: var(--cf-black);
+      color: #fff;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-verify-otp:hover {
+      background: #222;
+    }
+    .resend-row {
+      margin-top: 18px;
+      font-size: 0.85rem;
+      color: var(--cf-text-muted);
+    }
+    .resend-btn {
+      color: var(--cf-gold-dark);
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      background: none;
+      text-decoration: underline;
+    }
+
+    /* Terms Modal */
+    .terms-modal-card {
+      max-width: 650px;
+      text-align: left;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+    .terms-content {
+      font-size: 0.88rem;
+      color: #4b5563;
+      line-height: 1.6;
+      margin: 20px 0;
+    }
+    .terms-content h4 {
+      color: #111;
+      margin: 16px 0 6px 0;
+      font-size: 0.95rem;
+    }
+
+    /* Toast */
+    .toast-popup {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #111827;
+      color: #fff;
+      padding: 14px 20px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      z-index: 2000;
+      transform: translateY(50px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .toast-popup.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      .register-container {
+        padding: 28px 20px;
+        margin: 20px auto;
+      }
+      .form-grid, .form-grid.grid-3 {
+        grid-template-columns: 1fr;
+      }
+      .register-title {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- AUTH NAVBAR -->
+  <header class="auth-header">
+    <a href="/" class="auth-logo">Comfort Factory</a>
+    <div class="auth-nav-link">
+      <span>Already have an account?</span>
+      <a href="/login.html">Sign In</a>
+    </div>
+  </header>
+
+  <!-- REGISTRATION FORM CONTAINER -->
+  <main class="register-container">
+    <div class="register-title-area">
+      <span class="register-badge">Luxury Membership</span>
+      <h1 class="register-title">Create Your Account</h1>
+      <p class="register-subtitle">Join Comfort Factory to enjoy express checkout, saved wardrobe preferences, and real-time order tracking.</p>
+    </div>
+
+    <form id="customerRegisterForm" novalidate>
+
+      <!-- SECTION 1: ACCOUNT CREDENTIALS -->
+      <div class="form-section-title">
+        <span class="step-num">1</span>
+        <span>Account & Personal Information</span>
+      </div>
+
+      <div class="form-grid">
+        <!-- Full Name -->
+        <div class="form-field full-col">
+          <label for="fullName">Full Name <span class="req">*</span></label>
+          <div class="input-wrapper">
+            <input type="text" id="fullName" name="full_name" placeholder="e.g. Arjun Menon" required autocomplete="name">
+          </div>
+          <span class="field-error" id="fullNameError">Please enter your full name.</span>
+        </div>
+
+        <!-- Email Address -->
+        <div class="form-field">
+          <label for="emailAddress">Email Address <span class="req">*</span></label>
+          <div class="input-wrapper">
+            <input type="email" id="emailAddress" name="email" placeholder="name@gmail.com" required autocomplete="email">
+          </div>
+          <span class="field-hint">We'll send an email OTP to verify your ownership.</span>
+          <span class="field-error" id="emailError">Please enter a valid email address.</span>
+        </div>
+
+        <!-- Mobile Number -->
+        <div class="form-field">
+          <label for="mobileNumber">Mobile Number <span class="req">*</span></label>
+          <div class="input-wrapper">
+            <input type="tel" id="mobileNumber" name="mobile_number" placeholder="+91 98450 12345" required autocomplete="tel">
+          </div>
+          <span class="field-hint">Used for courier dispatch and delivery SMS updates.</span>
+          <span class="field-error" id="mobileError">Please enter a valid 10-digit mobile number.</span>
+        </div>
+
+        <!-- Password -->
+        <div class="form-field">
+          <label for="regPassword">Password <span class="req">*</span></label>
+          <div class="input-wrapper">
+            <input type="password" id="regPassword" name="password" placeholder="At least 6 characters" required autocomplete="new-password">
+            <button type="button" class="password-toggle-btn" data-target="regPassword" aria-label="Show or hide password">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+          <div class="strength-meter">
+            <div class="strength-meter-fill" id="strengthMeterFill"></div>
+          </div>
+          <span class="field-hint" id="strengthText">Use numbers and letters for security.</span>
+          <span class="field-error" id="passwordError">Password must be at least 6 characters.</span>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="form-field">
+          <label for="confirmPassword">Confirm Password <span class="req">*</span></label>
+          <div class="input-wrapper">
+            <input type="password" id="confirmPassword" name="confirm_password" placeholder="Re-enter your password" required autocomplete="new-password">
+            <button type="button" class="password-toggle-btn" data-target="confirmPassword" aria-label="Show or hide password">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+          <span class="field-error" id="confirmError">Passwords do not match.</span>
+        </div>
+      </div>
+
+      <!-- SECTION 2: DELIVERY ADDRESS -->
+      <div class="form-section-title">
+        <span class="step-num">2</span>
+        <span>Default Delivery Address</span>
+      </div>
+
+      <div class="form-grid">
+        <!-- House / Building -->
+        <div class="form-field full-col">
+          <label for="houseName">Flat / House No. / Building Name <span class="req">*</span></label>
+          <div class="input-wrapper">
+            <input type="text" id="houseName" name="house_name" placeholder="e.g. Flat 402, Skyline Residency" required>
+          </div>
+          <span class="field-error" id="houseError">House or building name is required.</span>
+        </div>
+
+        <!-- Street Address -->
+        <div class="form-field">
+          <label for="streetAddress">Street Address <span class="req">*</span></label>
+          <div class="input-wrapper">
+            <input type="text" id="streetAddress" name="street" placeholder="e.g. 12th Main Road" required>
+          </div>
+          <span class="field-error" id="streetError">Street address is required.</span>
+        </div>
+
+        <!-- Area / Locality -->
+        <div class="form-field">
+          <label for="areaLocality">Area / Locality <span class="req">*</span></label>
+          <div class="input-wrapper">
+            <input type="text" id="areaLocality" name="locality" placeholder="e.g. Indiranagar, HAL 2nd Stage" required>
+          </div>
+          <span class="field-error" id="localityError">Area or locality is required.</span>
+        </div>
+      </div>
+
+      <div class="form-grid grid-3" style="margin-top: 18px;">
+        <!-- City -->
+        <div class="form-field">
+          <label for="city">City <span class="req">*</span></label>
+          <div class="input-wrapper">
+            <input type="text" id="city" name="city" placeholder="e.g. Bengaluru" required>
+          </div>
+          <span class="field-error" id="cityError">City is required.</span>
+        </div>
+
+        <!-- State -->
+        <div class="form-field">
+          <label for="state">State <span class="req">*</span></label>
+          <div class="input-wrapper">
+            <select id="state" name="state" required>
+              <option value="">Select State</option>
+              <option value="Andhra Pradesh">Andhra Pradesh</option>
+              <option value="Assam">Assam</option>
+              <option value="Bihar">Bihar</option>
+              <option value="Delhi">Delhi</option>
+              <option value="Goa">Goa</option>
+              <option value="Gujarat">Gujarat</option>
+              <option value="Haryana">Haryana</option>
+              <option value="Karnataka" selected>Karnataka</option>
+              <option value="Kerala">Kerala</option>
+              <option value="Madhya Pradesh">Madhya Pradesh</option>
+              <option value="Maharashtra">Maharashtra</option>
+              <option value="Punjab">Punjab</option>
+              <option value="Rajasthan">Rajasthan</option>
+              <option value="Tamil Nadu">Tamil Nadu</option>
+              <option value="Telangana">Telangana</option>
+              <option value="Uttar Pradesh">Uttar Pradesh</option>
+              <option value="West Bengal">West Bengal</option>
+            </select>
+          </div>
+          <span class="field-error" id="stateError">State is required.</span>
+        </div>
+
+        <!-- PIN Code -->
+        <div class="form-field">
+          <label for="pinCode">PIN Code <span class="req">*</span></label>
+          <div class="input-wrapper">
+            <input type="text" id="pinCode" name="pin_code" placeholder="e.g. 560038" maxlength="6" required>
+          </div>
+          <span class="field-error" id="pinError">Valid 6-digit PIN code required.</span>
+        </div>
+      </div>
+
+      <!-- Country -->
+      <div class="form-grid grid-full" style="margin-top: 18px;">
+        <div class="form-field">
+          <label for="country">Country</label>
+          <div class="input-wrapper">
+            <input type="text" id="country" name="country" value="India" readonly style="background:#f3f4f6; cursor:not-allowed;">
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 3: TERMS & SUBMIT -->
+      <div class="terms-row">
+        <input type="checkbox" id="acceptTerms" name="accept_terms" required>
+        <label for="acceptTerms">
+          I accept the <a href="#" id="openTermsLink">Terms and Conditions</a> and acknowledge the <a href="#" id="openPrivacyLink">Privacy Policy</a> under Indian digital data protection standards.
+        </label>
+      </div>
+      <span class="field-error" id="termsError" style="margin-top: 6px;">You must accept the terms to register.</span>
+
+      <!-- Submit button -->
+      <button type="submit" class="btn-register-submit" id="btnRegisterSubmit">
+        <span>Create My Account & Verify Email</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+
+    </form>
+  </main>
+
+  <!-- ==========================================
+       OTP VERIFICATION MODAL
+       ========================================== -->
+  <div class="modal-overlay" id="otpModal">
+    <div class="modal-card">
+      <div class="otp-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      </div>
+      <h2 class="otp-title">Verify Email Ownership</h2>
+      <p class="otp-desc">We have sent a 6-digit verification code to <strong id="otpTargetEmail" style="color:#111;">your email</strong>. Please enter it below to activate your account.</p>
+
+      <!-- Dev preview box for local test convenience -->
+      <div class="dev-otp-banner" id="devOtpBanner">
+        <span>Verification Code:</span>
+        <span class="dev-otp-code" id="devOtpCode">------</span>
+      </div>
+
+      <div class="otp-inputs" id="otpInputsContainer">
+        <input type="text" maxlength="1" class="otp-digit" data-index="0" autofocus>
+        <input type="text" maxlength="1" class="otp-digit" data-index="1">
+        <input type="text" maxlength="1" class="otp-digit" data-index="2">
+        <input type="text" maxlength="1" class="otp-digit" data-index="3">
+        <input type="text" maxlength="1" class="otp-digit" data-index="4">
+        <input type="text" maxlength="1" class="otp-digit" data-index="5">
+      </div>
+
+      <button type="button" class="btn-verify-otp" id="btnVerifyOtp">Verify & Complete Registration</button>
+
+      <div class="resend-row">
+        <span>Didn't receive the email?</span>
+        <button type="button" class="resend-btn" id="btnResendOtp">Resend OTP</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       TERMS & PRIVACY POLICY MODAL
+       ========================================== -->
+  <div class="modal-overlay" id="termsModal">
+    <div class="modal-card terms-modal-card">
+      <h2 class="otp-title">Terms & Privacy Policy</h2>
+      <div class="terms-content">
+        <h4>1. Account Registration & Security</h4>
+        <p>Comfort Factory maintains high cryptographic standards for customer authentication. Passwords are salted and hashed using PBKDF2/SHA-512 with 100,000 iterations and never stored in plain text.</p>
+        
+        <h4>2. Indian Data Protection Compliance</h4>
+        <p>In accordance with the Digital Personal Data Protection (DPDP) Act, your registered mobile number, email, and delivery addresses are exclusively utilized for order fulfillment, dispatch logistics, and invoice generation.</p>
+        
+        <h4>3. Customer Rights (Portability & Erasure)</h4>
+        <p>You may download a complete copy of your customer records or request permanent deletion of your account at any time through your Customer Account Dashboard.</p>
+
+        <h4>4. Delivery & Order Processing</h4>
+        <p>Orders are dispatched with verified logistical partners (Delhivery, Blue Dart, DTDC) with tracking updates provided via your registered contact details.</p>
+      </div>
+      <button type="button" class="btn-verify-otp" id="btnCloseTerms">Close & Return</button>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION POPUP -->
+  <div class="toast-popup" id="toastPopup">
+    <span id="toastMessage">Notification message</span>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      'use strict';
+
+      // Elements
+      const form = document.getElementById('customerRegisterForm');
+      const submitBtn = document.getElementById('btnRegisterSubmit');
+      const otpModal = document.getElementById('otpModal');
+      const termsModal = document.getElementById('termsModal');
+      const otpTargetEmail = document.getElementById('otpTargetEmail');
+      const devOtpBanner = document.getElementById('devOtpBanner');
+      const devOtpCode = document.getElementById('devOtpCode');
+      const btnVerifyOtp = document.getElementById('btnVerifyOtp');
+      const btnResendOtp = document.getElementById('btnResendOtp');
+      const otpDigits = document.querySelectorAll('.otp-digit');
+      const toast = document.getElementById('toastPopup');
+      const toastMsg = document.getElementById('toastMessage');
+
+      let registeredEmail = '';
+
+      // Toast helper
+      function showToast(message, isError = false) {
+        toastMsg.textContent = message;
+        toast.style.background = isError ? '#ef4444' : '#111827';
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 4000);
+      }
+
+      // Password Show/Hide Toggle
+      document.querySelectorAll('.password-toggle-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const targetId = btn.dataset.target;
+          const input = document.getElementById(targetId);
+          if (input) {
+            const isPassword = input.type === 'password';
+            input.type = isPassword ? 'text' : 'password';
+            btn.innerHTML = isPassword 
+              ? `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/><line x1="2" y1="2" x2="22" y2="22"/></svg>`
+              : `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>`;
+          }
+        });
+      });
+
+      // Password Strength Meter
+      const pwdInput = document.getElementById('regPassword');
+      const strengthFill = document.getElementById('strengthMeterFill');
+      const strengthText = document.getElementById('strengthText');
+
+      if (pwdInput && strengthFill) {
+        pwdInput.addEventListener('input', () => {
+          const val = pwdInput.value;
+          let strength = 0;
+          if (val.length >= 6) strength += 25;
+          if (val.length >= 8) strength += 25;
+          if (/[0-9]/.test(val)) strength += 25;
+          if (/[^A-Za-z0-9]/.test(val) || /[A-Z]/.test(val)) strength += 25;
+
+          strengthFill.style.width = strength + '%';
+          if (strength <= 25) {
+            strengthFill.style.backgroundColor = '#ef4444';
+            strengthText.textContent = 'Weak password';
+          } else if (strength <= 50) {
+            strengthFill.style.backgroundColor = '#f59e0b';
+            strengthText.textContent = 'Fair password - add numbers or symbols';
+          } else if (strength <= 75) {
+            strengthFill.style.backgroundColor = '#3b82f6';
+            strengthText.textContent = 'Good password';
+          } else {
+            strengthFill.style.backgroundColor = '#10b981';
+            strengthText.textContent = 'Strong luxury password!';
+          }
+        });
+      }
+
+      // Terms modal open/close
+      document.getElementById('openTermsLink').addEventListener('click', (e) => { e.preventDefault(); termsModal.classList.add('open'); });
+      document.getElementById('openPrivacyLink').addEventListener('click', (e) => { e.preventDefault(); termsModal.classList.add('open'); });
+      document.getElementById('btnCloseTerms').addEventListener('click', () => termsModal.classList.remove('open'));
+
+      // OTP Inputs Navigation (Auto tab to next digit)
+      otpDigits.forEach((digit, idx) => {
+        digit.addEventListener('input', (e) => {
+          const val = e.target.value;
+          if (val && idx < otpDigits.length - 1) {
+            otpDigits[idx + 1].focus();
+          }
+        });
+        digit.addEventListener('keydown', (e) => {
+          if (e.key === 'Backspace' && !e.target.value && idx > 0) {
+            otpDigits[idx - 1].focus();
+          }
+        });
+        // Handle Paste of complete 6-digit OTP
+        digit.addEventListener('paste', (e) => {
+          e.preventDefault();
+          const pasted = (e.clipboardData || window.clipboardData).getData('text').trim();
+          if (/^\d{6}$/.test(pasted)) {
+            pasted.split('').forEach((char, i) => {
+              if (otpDigits[i]) otpDigits[i].value = char;
+            });
+            otpDigits[5].focus();
+          }
+        });
+      });
+
+      function getEnteredOtp() {
+        return Array.from(otpDigits).map(d => d.value).join('');
+      }
+
+      function clearOtpInputs() {
+        otpDigits.forEach(d => d.value = '');
+        if (otpDigits[0]) otpDigits[0].focus();
+      }
+
+      // Client-side Validation Helper
+      function validateRegistrationForm() {
+        let valid = true;
+        const name = document.getElementById('fullName');
+        const email = document.getElementById('emailAddress');
+        const mobile = document.getElementById('mobileNumber');
+        const password = document.getElementById('regPassword');
+        const confirm = document.getElementById('confirmPassword');
+        const house = document.getElementById('houseName');
+        const street = document.getElementById('streetAddress');
+        const locality = document.getElementById('areaLocality');
+        const city = document.getElementById('city');
+        const state = document.getElementById('state');
+        const pin = document.getElementById('pinCode');
+        const terms = document.getElementById('acceptTerms');
+
+        // Reset errors
+        document.querySelectorAll('.field-error').forEach(e => e.style.display = 'none');
+        document.querySelectorAll('.input-wrapper input, .input-wrapper select').forEach(i => i.classList.remove('invalid'));
+
+        if (!name.value.trim()) {
+          document.getElementById('fullNameError').style.display = 'block';
+          name.classList.add('invalid');
+          valid = false;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email.value.trim() || !emailRegex.test(email.value.trim())) {
+          document.getElementById('emailError').style.display = 'block';
+          email.classList.add('invalid');
+          valid = false;
+        }
+
+        const cleanPhone = mobile.value.replace(/\D/g, '');
+        if (cleanPhone.length < 10) {
+          document.getElementById('mobileError').style.display = 'block';
+          mobile.classList.add('invalid');
+          valid = false;
+        }
+
+        if (password.value.length < 6) {
+          document.getElementById('passwordError').style.display = 'block';
+          password.classList.add('invalid');
+          valid = false;
+        }
+
+        if (password.value !== confirm.value) {
+          document.getElementById('confirmError').style.display = 'block';
+          confirm.classList.add('invalid');
+          valid = false;
+        }
+
+        if (!house.value.trim()) {
+          document.getElementById('houseError').style.display = 'block';
+          house.classList.add('invalid');
+          valid = false;
+        }
+
+        if (!street.value.trim()) {
+          document.getElementById('streetError').style.display = 'block';
+          street.classList.add('invalid');
+          valid = false;
+        }
+
+        if (!locality.value.trim()) {
+          document.getElementById('localityError').style.display = 'block';
+          locality.classList.add('invalid');
+          valid = false;
+        }
+
+        if (!city.value.trim()) {
+          document.getElementById('cityError').style.display = 'block';
+          city.classList.add('invalid');
+          valid = false;
+        }
+
+        if (!state.value) {
+          document.getElementById('stateError').style.display = 'block';
+          state.classList.add('invalid');
+          valid = false;
+        }
+
+        const pinClean = pin.value.replace(/\D/g, '');
+        if (pinClean.length !== 6) {
+          document.getElementById('pinError').style.display = 'block';
+          pin.classList.add('invalid');
+          valid = false;
+        }
+
+        if (!terms.checked) {
+          document.getElementById('termsError').style.display = 'block';
+          valid = false;
+        }
+
+        return valid;
+      }
+
+      // Handle Form Submit (POST /api/customer/register)
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (!validateRegistrationForm()) {
+          showToast('Please fix highlighted form errors.', true);
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>Processing Registration...</span>';
+
+        const payload = {
+          full_name: document.getElementById('fullName').value.trim(),
+          email: document.getElementById('emailAddress').value.trim(),
+          mobile_number: document.getElementById('mobileNumber').value.trim(),
+          password: document.getElementById('regPassword').value,
+          confirm_password: document.getElementById('confirmPassword').value,
+          house_name: document.getElementById('houseName').value.trim(),
+          street: document.getElementById('streetAddress').value.trim(),
+          locality: document.getElementById('areaLocality').value.trim(),
+          city: document.getElementById('city').value.trim(),
+          state: document.getElementById('state').value,
+          pin_code: document.getElementById('pinCode').value.trim(),
+          country: document.getElementById('country').value,
+          accept_terms: document.getElementById('acceptTerms').checked
+        };
+
+        try {
+          const res = await fetch('/api/customer/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          const data = await res.json();
+
+          if (data.success) {
+            registeredEmail = payload.email;
+            otpTargetEmail.textContent = registeredEmail;
+
+            // Display dev preview code for testing
+            if (data.dev_otp) {
+              devOtpCode.textContent = data.dev_otp;
+              devOtpBanner.style.display = 'flex';
+            } else {
+              devOtpBanner.style.display = 'none';
+            }
+
+            clearOtpInputs();
+            otpModal.classList.add('open');
+            showToast('Verification code dispatched to your email.');
+          } else {
+            showToast(data.message || 'Registration failed.', true);
+          }
+        } catch (err) {
+          showToast('Network error: ' + err.message, true);
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = `<span>Create My Account & Verify Email</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`;
+        }
+      });
+
+      // Handle OTP Verification
+      btnVerifyOtp.addEventListener('click', async () => {
+        const otp = getEnteredOtp();
+        if (otp.length !== 6) {
+          showToast('Please enter the full 6-digit verification code.', true);
+          return;
+        }
+
+        btnVerifyOtp.disabled = true;
+        btnVerifyOtp.textContent = 'Verifying Ownership...';
+
+        try {
+          const res = await fetch('/api/customer/verify-otp', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: registeredEmail, otp })
+          });
+          const data = await res.json();
+
+          if (data.success) {
+            // Save customer session token
+            localStorage.setItem('cf_customer_token', data.token);
+            localStorage.setItem('cf_customer_user', JSON.stringify(data.customer));
+
+            showToast('Account activated successfully! Redirecting...');
+            setTimeout(() => {
+              window.location.href = '/account.html';
+            }, 1200);
+          } else {
+            showToast(data.message || 'Invalid code.', true);
+            clearOtpInputs();
+          }
+        } catch (err) {
+          showToast('Verification error: ' + err.message, true);
+        } finally {
+          btnVerifyOtp.disabled = false;
+          btnVerifyOtp.textContent = 'Verify & Complete Registration';
+        }
+      });
+
+      // Handle Resend OTP
+      btnResendOtp.addEventListener('click', async () => {
+        btnResendOtp.disabled = true;
+        btnResendOtp.textContent = 'Sending...';
+
+        try {
+          const res = await fetch('/api/customer/resend-otp', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: registeredEmail })
+          });
+          const data = await res.json();
+          if (data.success) {
+            if (data.dev_otp) devOtpCode.textContent = data.dev_otp;
+            showToast('A new 6-digit OTP has been sent.');
+            clearOtpInputs();
+          } else {
+            showToast(data.message, true);
+          }
+        } catch (err) {
+          showToast(err.message, true);
+        } finally {
+          btnResendOtp.disabled = false;
+          btnResendOtp.textContent = 'Resend OTP';
+        }
+      });
+
+    });
+  </script>
+</body>
+</html>

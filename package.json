@@ -1,0 +1,19 @@
+{
+  "name": "comfort-factory-admin",
+  "version": "1.0.0",
+  "description": "Comfort Factory - Premium Clothing Brand E-Commerce & Admin Dashboard",
+  "main": "server.js",
+  "scripts": {
+    "start": "gsheets --version && node server.js",
+    "dev": "gsheets --version && node server.js",
+    "sync-sheets": "gsheets --version && node -e \"const s = require('./google-sheets-sync'); const db = JSON.parse(require('fs').readFileSync('./data/db.json','utf8')); s.syncAllCustomers(db).then(console.log);\""
+  },
+  "keywords": [
+    "fashion",
+    "ecommerce",
+    "admin-dashboard",
+    "clothing"
+  ],
+  "author": "Najwan",
+  "license": "ISC"
+}
