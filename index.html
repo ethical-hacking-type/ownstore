@@ -3,795 +3,1584 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Comfort Factory - Premium men's clothing. Shirts, T-shirts, Pants. Surprisingly Affordable! We Craft What We Sell.">
-  <title>Comfort Factory</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>👔</text></svg>">
+  <title>Admin Dashboard | Comfort Factory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+  <!-- Chart.js for Luxury Analytics Charts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
-<!-- ANNOUNCEMENT BAR -->
-<div class="announcement-bar">
-  <div class="marquee-wrap">
-    <div class="marquee-text">
-      <span>Free Shipping on Orders Above ₹999</span>
-      <span>Served Over 2.5 Lakh Customers</span>
-      <span>We Craft What We Sell</span>
-      <span>All For Your Comfort</span>
-    </div>
-    <div class="marquee-text" aria-hidden="true">
-      <span>Free Shipping on Orders Above ₹999</span>
-      <span>Served Over 2.5 Lakh Customers</span>
-      <span>We Craft What We Sell</span>
-      <span>All For Your Comfort</span>
-    </div>
-  </div>
-</div>
+<div class="admin-layout">
 
-<!-- HEADER -->
-<header class="header" id="header">
-  <div class="header-inner">
-    <div class="menu-toggle" id="menu-toggle">
-      <span></span><span></span><span></span>
+  <!-- ===================================================
+       SIDEBAR NAVIGATION
+       =================================================== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="#dashboard" class="sidebar-logo">
+        <div class="logo-icon">CF</div>
+        <div class="logo-text">
+          <h2>Comfort</h2>
+          <span>Admin Executive</span>
+        </div>
+      </a>
     </div>
-    <div class="logo"><a href="/">Comfort Factory</a></div>
-    <nav class="nav-desktop">
-      <div class="nav-item">
-        <a href="#hero" class="nav-link active">Home</a>
-      </div>
-      <div class="nav-item has-dropdown">
-        <a href="#category/shirts" class="nav-link">Shirts <span class="nav-arrow">▾</span></a>
-        <div class="dropdown-menu">
-          <a href="#category/shirts/casual-shirt">Casual Shirt</a>
-          <a href="#category/shirts/oversized-shirt">Oversized Shirt</a>
-          <a href="#category/shirts/cuban-collar-shirt">Cuban Collar Shirt</a>
-          <a href="#category/shirts/check-shirt">Check Shirt</a>
-          <a href="#category/shirts/denim-shirt">Denim Shirt</a>
-        </div>
-      </div>
-      <div class="nav-item has-dropdown">
-        <a href="#category/tshirts" class="nav-link">T-Shirts <span class="nav-arrow">▾</span></a>
-        <div class="dropdown-menu">
-          <a href="#category/tshirts/oversized-tshirt">Oversized T-shirt</a>
-          <a href="#category/tshirts/drop-shoulder-tshirt">Drop-Shoulder T-shirt</a>
-          <a href="#category/tshirts/boxy-fit-tshirt">Boxy-Fit T-shirt</a>
-          <a href="#category/tshirts/heavyweight-tshirt">Heavyweight T-shirt</a>
-          <a href="#category/tshirts/streetwear-tshirt">Streetwear T-shirt</a>
-          <a href="#category/tshirts/longline-tshirt">Longline T-shirt</a>
-        </div>
-      </div>
-      <div class="nav-item has-dropdown">
-        <a href="#category/pants" class="nav-link">Pants <span class="nav-arrow">▾</span></a>
-        <div class="dropdown-menu">
-          <a href="#category/pants/baggy-pants">Baggy Pants <span class="sub-desc">Loose and relaxed fit</span></a>
-          <a href="#category/pants/wide-leg-pants">Wide-Leg Pants <span class="sub-desc">Wide from waist to ankle</span></a>
-          <a href="#category/pants/cargo-pants">Cargo Pants <span class="sub-desc">Pants with multiple pockets</span></a>
-          <a href="#category/pants/parachute-pants">Parachute Pants <span class="sub-desc">Lightweight, relaxed, sporty style</span></a>
-        </div>
-      </div>
-      <div class="nav-item">
-        <a href="#new-arrivals" class="nav-link">New Arrivals</a>
-      </div>
-      <div class="nav-item">
-        <a href="#product-listing" class="nav-link" id="nav-sale-link">Sale</a>
-      </div>
-    </nav>
-    <div class="header-icons">
-      <button id="search-btn" aria-label="Search">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-      </button>
 
-      <!-- Customer Account Navigation Dropdown -->
-      <div class="customer-nav-dropdown-wrapper" id="customerNavWrapper" style="position: relative;">
-        <button id="customer-account-btn" aria-label="Customer Account" title="My Account" style="display:flex; align-items:center; gap:6px; cursor:pointer; color:inherit; background:none; border:none;">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
-          <span id="headerCustomerName" style="font-size:0.82rem; font-weight:600; max-width:85px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; display:none;"></span>
+    <ul class="sidebar-menu">
+      <li class="menu-category-title">Core Management</li>
+      <li>
+        <a class="menu-item active" data-view="dashboard">
+          <span class="menu-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          </span>
+          <span>Dashboard Home</span>
+        </a>
+      </li>
+      <li>
+        <a class="menu-item" data-view="products">
+          <span class="menu-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          </span>
+          <span>Products</span>
+          <span class="menu-badge badge-gold" id="sidebar-prod-count">16</span>
+        </a>
+      </li>
+      <li>
+        <a class="menu-item" data-view="categories">
+          <span class="menu-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+          </span>
+          <span>Categories</span>
+        </a>
+      </li>
+      <li>
+        <a class="menu-item" data-view="inventory">
+          <span class="menu-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </span>
+          <span>Inventory & Stock</span>
+        </a>
+      </li>
+      <li>
+        <a class="menu-item" data-view="orders">
+          <span class="menu-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </span>
+          <span>Orders & Invoices</span>
+          <span class="menu-badge" id="sidebar-order-count">4</span>
+        </a>
+      </li>
+      <li>
+        <a class="menu-item" data-view="customers">
+          <span class="menu-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </span>
+          <span>CUSTOMER MANAGEMENT</span>
+          <span class="menu-badge badge-gold" id="sidebar-cust-count">5</span>
+        </a>
+      </li>
+      <li>
+        <a class="menu-item" data-view="google-sheets">
+          <span class="menu-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </span>
+          <span>CUSTOMER DATABASE – GOOGLE SHEETS</span>
+          <span class="menu-badge" style="background:#10b981; color:#fff;" id="sidebar-sheets-badge">LIVE</span>
+        </a>
+      </li>
+
+      <li class="menu-category-title">Marketing & Brand</li>
+      <li>
+        <a class="menu-item" data-view="coupons">
+          <span class="menu-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
+          </span>
+          <span>Offers & Coupons</span>
+        </a>
+      </li>
+      <li>
+        <a class="menu-item" data-view="banners">
+          <span class="menu-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          </span>
+          <span>Homepage & Banners</span>
+        </a>
+      </li>
+      <li>
+        <a class="menu-item" data-view="reports">
+          <span class="menu-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </span>
+          <span>Sales & Reports</span>
+        </a>
+      </li>
+
+      <li class="menu-category-title">Operations</li>
+      <li>
+        <a class="menu-item" data-view="shipping">
+          <span class="menu-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          </span>
+          <span>Shipping & Delivery</span>
+        </a>
+      </li>
+      <li>
+        <a class="menu-item" data-view="payments">
+          <span class="menu-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          </span>
+          <span>Payment Gateway</span>
+        </a>
+      </li>
+      <li>
+        <a class="menu-item" data-view="staff">
+          <span class="menu-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </span>
+          <span>Staff & RBAC</span>
+        </a>
+      </li>
+      <li>
+        <a class="menu-item" data-view="settings">
+          <span class="menu-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </span>
+          <span>Store Settings</span>
+        </a>
+      </li>
+    </ul>
+
+    <div class="sidebar-footer">
+      <div class="admin-profile-card">
+        <div class="admin-avatar" id="sidebarAvatar">N</div>
+        <div class="admin-info">
+          <div class="admin-name" id="sidebarAdminName">Najwan</div>
+          <div class="admin-role" id="sidebarAdminRole">Super Admin</div>
+        </div>
+        <button class="btn-icon-logout" id="logoutBtn" title="Logout">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
         </button>
-        <div class="customer-dropdown-menu" id="customerDropdownMenu" style="position: absolute; right: 0; top: 100%; margin-top: 10px; background: #ffffff; border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.12); min-width: 195px; padding: 6px 0; z-index: 1000; display: none;">
-          <div id="customerGuestLinks">
-            <a href="/login.html" style="display: block; padding: 10px 16px; font-size: 0.88rem; color: #111; font-weight: 500;">Sign In</a>
-            <a href="/register.html" style="display: block; padding: 10px 16px; font-size: 0.88rem; color: #b8860b; font-weight: 600;">Create Account</a>
-          </div>
-          <div id="customerAuthLinks" style="display: none;">
-            <div style="padding: 10px 16px; border-bottom: 1px solid #f3f4f6; font-size: 0.78rem; color: #6b7280;">Signed in as <strong id="dropdownCustomerEmail" style="color:#111; display:block; overflow:hidden; text-overflow:ellipsis; font-size:0.82rem;"></strong></div>
-            <a href="/account.html" style="display: block; padding: 10px 16px; font-size: 0.88rem; color: #111;">My Account</a>
-            <a href="/account.html#orders" style="display: block; padding: 10px 16px; font-size: 0.88rem; color: #111;">My Orders & Tracking</a>
-            <a href="/account.html#addresses" style="display: block; padding: 10px 16px; font-size: 0.88rem; color: #111;">Delivery Addresses</a>
-            <button id="dropdownCustomerLogout" style="display: block; width: 100%; text-align: left; padding: 10px 16px; font-size: 0.88rem; color: #ef4444; border-top: 1px solid #f3f4f6; cursor: pointer; background:none; border:none; font-family:inherit;">Sign Out</button>
-          </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===================================================
+       MAIN CONTENT WRAPPER
+       =================================================== -->
+  <div class="main-wrapper">
+    <!-- Topbar Header -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="menu-toggle-btn" id="sidebarToggleBtn" aria-label="Toggle menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <div class="global-search-wrap">
+          <svg class="search-icon-inside" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" class="global-search-input" id="globalSearchInput" placeholder="Quick search products, orders, customers...">
         </div>
       </div>
 
-      <button id="cart-btn" aria-label="Cart">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-        <span class="cart-count">0</span>
-      </button>
-    </div>
-  </div>
-</header>
-
-<!-- MOBILE NAV -->
-<div class="mobile-overlay" id="mobile-overlay"></div>
-<nav class="nav-mobile" id="nav-mobile">
-  <button class="close-menu" aria-label="Close menu">✕</button>
-  <div class="mobile-nav-list">
-    <a href="#hero" class="mobile-link">Home</a>
-    <div class="mobile-nav-item">
-      <div class="mobile-nav-header">
-        <a href="#category/shirts" class="mobile-link">Shirts</a>
-        <button class="mobile-toggle" data-target="m-sub-shirts" aria-label="Toggle Shirts submenu">+</button>
-      </div>
-      <div class="mobile-subnav" id="m-sub-shirts">
-        <a href="#category/shirts/casual-shirt">Casual Shirt</a>
-        <a href="#category/shirts/oversized-shirt">Oversized Shirt</a>
-        <a href="#category/shirts/cuban-collar-shirt">Cuban Collar Shirt</a>
-        <a href="#category/shirts/check-shirt">Check Shirt</a>
-        <a href="#category/shirts/denim-shirt">Denim Shirt</a>
-      </div>
-    </div>
-    <div class="mobile-nav-item">
-      <div class="mobile-nav-header">
-        <a href="#category/tshirts" class="mobile-link">T-Shirts</a>
-        <button class="mobile-toggle" data-target="m-sub-tshirts" aria-label="Toggle T-Shirts submenu">+</button>
-      </div>
-      <div class="mobile-subnav" id="m-sub-tshirts">
-        <a href="#category/tshirts/oversized-tshirt">Oversized T-shirt</a>
-        <a href="#category/tshirts/drop-shoulder-tshirt">Drop-Shoulder T-shirt</a>
-        <a href="#category/tshirts/boxy-fit-tshirt">Boxy-Fit T-shirt</a>
-        <a href="#category/tshirts/heavyweight-tshirt">Heavyweight T-shirt</a>
-        <a href="#category/tshirts/streetwear-tshirt">Streetwear T-shirt</a>
-        <a href="#category/tshirts/longline-tshirt">Longline T-shirt</a>
-      </div>
-    </div>
-    <div class="mobile-nav-item">
-      <div class="mobile-nav-header">
-        <a href="#category/pants" class="mobile-link">Pants</a>
-        <button class="mobile-toggle" data-target="m-sub-pants" aria-label="Toggle Pants submenu">+</button>
-      </div>
-      <div class="mobile-subnav" id="m-sub-pants">
-        <a href="#category/pants/baggy-pants">Baggy Pants <span class="mobile-sub-desc">— Loose and relaxed fit</span></a>
-        <a href="#category/pants/wide-leg-pants">Wide-Leg Pants <span class="mobile-sub-desc">— Wide from waist to ankle</span></a>
-        <a href="#category/pants/cargo-pants">Cargo Pants <span class="mobile-sub-desc">— Multiple pockets</span></a>
-        <a href="#category/pants/parachute-pants">Parachute Pants <span class="mobile-sub-desc">— Lightweight & sporty</span></a>
-      </div>
-    </div>
-    <a href="#new-arrivals" class="mobile-link">New Arrivals</a>
-    <a href="#product-listing" class="mobile-link">Sale</a>
-    <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(0,0,0,0.08);" id="mobileCustomerNavLinks">
-      <a href="/account.html" class="mobile-link" id="mobileLinkAccount" style="display:none; color: #b8860b; font-weight:600;">My Account</a>
-      <a href="/login.html" class="mobile-link" id="mobileLinkLogin">Customer Sign In</a>
-      <a href="/register.html" class="mobile-link" id="mobileLinkRegister" style="color: #b8860b;">Create Account</a>
-      <button class="mobile-link" id="mobileBtnLogout" style="display:none; color: #ef4444; background:none; border:none; padding:12px 0; text-align:left; font-size:1.05rem; cursor:pointer;">Sign Out</button>
-    </div>
-  </div>
-</nav>
-
-<!-- HERO SLIDESHOW -->
-<section class="hero" id="hero">
-  <div class="hero-slides">
-    <div class="hero-slide active">
-      <img src="image1.jpg" alt="Premium men's fashion collection" class="hero-slide-img">
-      <div class="hero-overlay">
-        <p class="hero-tag">Surprisingly Affordable!</p>
-        <h1 class="hero-title">We Craft What<br>We Sell</h1>
-        <p class="hero-sub">All For Your Comfort &amp; Style</p>
-        <a href="#product-listing" class="hero-btn">
-          <span>SHOP NOW</span>
-          <svg class="hero-btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      <div class="topbar-right">
+        <a href="../index.html" class="btn-storefront" target="_blank" title="Open Storefront in new tab">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <span>Storefront View</span>
         </a>
+        <button class="notification-bell-btn" id="notifBtn" title="Alerts & Low Stock">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          <span class="notification-dot"></span>
+        </button>
       </div>
-    </div>
-    <div class="hero-slide">
-      <img src="image2.jpg" alt="Men's casual wear collection" class="hero-slide-img">
-      <div class="hero-overlay">
-        <p class="hero-tag">New Season, New Fits</p>
-        <h1 class="hero-title">Premium Quality<br>Affordable Price</h1>
-        <p class="hero-sub">Served Over 2.5 Lakh Customers Across India</p>
-        <a href="#product-listing" class="hero-btn">
-          <span>EXPLORE COLLECTION</span>
-          <svg class="hero-btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-    </div>
-    <div class="hero-slide">
-      <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=1600&h=900&fit=crop&q=80" alt="Urban fashion aesthetics" class="hero-slide-img">
-      <div class="hero-overlay">
-        <p class="hero-tag">Streetwear &amp; Oversized Fits</p>
-        <h1 class="hero-title">Elevate Your<br>Everyday Look</h1>
-        <p class="hero-sub">Heavyweight, Boxy &amp; Parachute Styles</p>
-        <a href="#product-listing" class="hero-btn">
-          <span>DISCOVER NOW</span>
-          <svg class="hero-btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="hero-dots">
-    <button class="dot active" data-slide="0" aria-label="Slide 1"><span class="dot-progress"></span></button>
-    <button class="dot" data-slide="1" aria-label="Slide 2"><span class="dot-progress"></span></button>
-    <button class="dot" data-slide="2" aria-label="Slide 3"><span class="dot-progress"></span></button>
-  </div>
-</section>
+    </header>
 
-<!-- MARQUEE STRIP -->
-<div class="marquee-strip">
-  <div class="marquee-inner">
-    <div class="marquee-item">Served over 2.5 Lakh Customers</div>
-    <div class="marquee-item">Premium Quality Fabrics</div>
-    <div class="marquee-item">Designed & Made in India</div>
-    <div class="marquee-item">Express Shipping</div>
-    <div class="marquee-item">Served over 2.5 Lakh Customers</div>
-    <div class="marquee-item">Premium Quality Fabrics</div>
-    <div class="marquee-item">Designed & Made in India</div>
-    <div class="marquee-item">Express Shipping</div>
-  </div>
-</div>
+    <!-- Content Views Container -->
+    <main class="content-body">
 
-<!-- CATEGORIES SECTION -->
-<section class="categories-section" id="categories">
-  <div class="section-title-wrap">
-    <h2>Shop By Category</h2>
-    <p>Choose a category to discover specific fits, styles, and collections</p>
-  </div>
-  <div class="categories-cards-grid">
-    <div class="category-card-item active" data-category="shirts" tabindex="0" role="button" aria-label="View Shirts and styles">
-      <div class="cat-img-wrap">
-        <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=450&h=450&fit=crop&q=80" alt="Shirts">
-        <span class="cat-badge">5 Styles</span>
-      </div>
-      <h3>Shirts</h3>
-      <p>Casual, Oversized, Cuban Collar, Check, Denim</p>
-    </div>
-    <div class="category-card-item" data-category="tshirts" tabindex="0" role="button" aria-label="View T-Shirts and styles">
-      <div class="cat-img-wrap">
-        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=450&h=450&fit=crop&q=80" alt="T-Shirts">
-        <span class="cat-badge">6 Styles</span>
-      </div>
-      <h3>T-Shirts</h3>
-      <p>Oversized, Drop-Shoulder, Boxy-Fit, Heavyweight & more</p>
-    </div>
-    <div class="category-card-item" data-category="pants" tabindex="0" role="button" aria-label="View Pants and styles">
-      <div class="cat-img-wrap">
-        <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=450&h=450&fit=crop&q=80" alt="Pants">
-        <span class="cat-badge">4 Styles</span>
-      </div>
-      <h3>Pants</h3>
-      <p>Baggy, Wide-Leg, Cargo, Parachute</p>
-    </div>
-  </div>
-
-  <!-- INTERACTIVE CATEGORY TYPES SELECTOR -->
-  <div class="category-types-browser" id="category-types-browser">
-    <div class="types-browser-inner">
-      <div class="types-title">Explore <span id="types-category-name">Shirts</span> Types:</div>
-      <div class="types-chips-wrap" id="types-chips-wrap">
-        <!-- Rendered dynamically by main.js based on selected category -->
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- DEDICATED PRODUCT LISTING SECTION -->
-<section class="category-listing-section" id="product-listing">
-  <div class="listing-header-wrap">
-    <div class="breadcrumb-trail" id="listing-breadcrumb">
-      <a href="#categories">Home</a> &gt; <span id="bc-category">Shirts</span> <span id="bc-sub-wrapper">&gt; <span id="bc-subcategory">All Shirts</span></span>
-    </div>
-    <div class="listing-heading-row">
-      <div>
-        <h2 id="listing-title">Shirts Collection</h2>
-        <p id="listing-description">Explore our premium shirts crafted with superior fabrics and modern fits.</p>
-      </div>
-      <div class="listing-badge"><span id="product-count">0</span> Products Found</div>
-    </div>
-
-    <!-- FILTER & SORT TOOLBAR -->
-    <div class="filter-sort-bar">
-      <div class="filter-controls">
-        <div class="filter-item">
-          <label for="filter-size">Size:</label>
-          <select id="filter-size">
-            <option value="all">All Sizes</option>
-            <option value="S">S</option>
-            <option value="M">M</option>
-            <option value="L">L</option>
-            <option value="XL">XL</option>
-            <option value="XXL">XXL</option>
-            <option value="28">28</option>
-            <option value="30">30</option>
-            <option value="32">32</option>
-            <option value="34">34</option>
-            <option value="36">36</option>
-            <option value="38">38</option>
-          </select>
-        </div>
-        <div class="filter-item">
-          <label for="filter-color">Color:</label>
-          <select id="filter-color">
-            <option value="all">All Colors</option>
-            <option value="Black">Black</option>
-            <option value="White">White</option>
-            <option value="Blue">Blue</option>
-            <option value="Navy">Navy</option>
-            <option value="Olive">Olive</option>
-            <option value="Grey">Grey</option>
-            <option value="Beige">Beige</option>
-            <option value="Cream">Cream</option>
-          </select>
-        </div>
-        <button type="button" class="btn-reset-filters" id="btn-reset-filters">Reset Filters</button>
-      </div>
-
-      <div class="sort-item">
-        <label for="sort-select">Sort By:</label>
-        <select id="sort-select">
-          <option value="featured">Featured</option>
-          <option value="price-asc">Price: Low to High</option>
-          <option value="price-desc">Price: High to Low</option>
-          <option value="name-asc">Name: A to Z</option>
-        </select>
-      </div>
-    </div>
-  </div>
-
-  <!-- PRODUCTS GRID FOR LISTING -->
-  <div class="products-grid" id="listing-products-grid">
-    <!-- Rendered dynamically by main.js with size swatches, color swatches, Add to Cart, Buy Now -->
-  </div>
-</section>
-
-<!-- NEW ARRIVALS -->
-<div class="section-header" id="new-arrivals">
-  <h2>New Arrivals</h2>
-  <a href="#" class="view-all">View all</a>
-</div>
-<div class="products-grid">
-  <div class="product-card" data-id="p_001">
-    <a href="#" class="product-image">
-      <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&h=540&fit=crop&q=80" alt="Linen Pants">
-      <span class="product-badge">New</span>
-    </a>
-    <div class="product-info">
-      <h3>LINEN PANTS MPJ0089</h3>
-      <div class="product-price"><span class="current">₹1,299</span><span class="original">₹1,999</span><span class="discount">35% off</span></div>
-      <div class="product-actions">
-        <button class="btn-add-cart">Add to Cart</button>
-        <button class="btn-buy-now">Buy it Now</button>
-      </div>
-    </div>
-  </div>
-  <div class="product-card" data-id="p_002">
-    <a href="#" class="product-image">
-      <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=540&fit=crop&q=80" alt="Imported Stripes Shirt">
-      <span class="product-badge">New</span>
-    </a>
-    <div class="product-info">
-      <h3>IMPORTED STRIPES SHIRT MSC0991</h3>
-      <div class="product-price"><span class="current">₹899</span><span class="original">₹1,499</span><span class="discount">40% off</span></div>
-      <div class="product-actions">
-        <button class="btn-add-cart">Add to Cart</button>
-        <button class="btn-buy-now">Buy it Now</button>
-      </div>
-    </div>
-  </div>
-  <div class="product-card" data-id="p_003">
-    <a href="#" class="product-image">
-      <img src="https://images.unsplash.com/photo-1603252109303-2751441dd157?w=400&h=540&fit=crop&q=80" alt="Oxford Shirt">
-      <span class="product-badge">New</span>
-    </a>
-    <div class="product-info">
-      <h3>OXFORD SHIRT MSC1104</h3>
-      <div class="product-price"><span class="current">₹799</span><span class="original">₹1,299</span><span class="discount">38% off</span></div>
-      <div class="product-actions">
-        <button class="btn-add-cart">Add to Cart</button>
-        <button class="btn-buy-now">Buy it Now</button>
-      </div>
-    </div>
-  </div>
-  <div class="product-card" data-id="p_004">
-    <a href="#" class="product-image">
-      <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=540&fit=crop&q=80" alt="Lycra Denim Pants">
-      <span class="product-badge">New</span>
-    </a>
-    <div class="product-info">
-      <h3>NO FADE BLACK LYCRA DENIM PANTS MDP0175</h3>
-      <div class="product-price"><span class="current">₹1,499</span><span class="original">₹2,199</span><span class="discount">32% off</span></div>
-      <div class="product-actions">
-        <button class="btn-add-cart">Add to Cart</button>
-        <button class="btn-buy-now">Buy it Now</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- STORE BANNER -->
-<section class="store-banner">
-  <div class="store-banner-inner">
-    <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=1400&h=500&fit=crop&q=80" alt="View our stores">
-    <div class="store-banner-overlay">
-      <h2>Visit Our Stores</h2>
-      <a href="#">View Stores</a>
-    </div>
-  </div>
-</section>
-
-<!-- SHIRTS SECTION -->
-<div class="section-header" id="shirts">
-  <h2>Shirts</h2>
-  <a href="#category/shirts" class="view-all">View all</a>
-</div>
-<div class="products-grid">
-  <div class="product-card" data-id="p_002">
-    <a href="#category/shirts/check-shirt" class="product-image"><img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=540&fit=crop&q=80" alt="Stripes Shirt"></a>
-    <div class="product-info">
-      <h3>IMPORTED STRIPES SHIRT MSC0991</h3>
-      <div class="product-price"><span class="current">₹899</span><span class="original">₹1,499</span><span class="discount">40% off</span></div>
-      <div class="product-actions"><button class="btn-add-cart">Add to Cart</button><button class="btn-buy-now">Buy it Now</button></div>
-    </div>
-  </div>
-  <div class="product-card" data-id="p_003">
-    <a href="#category/shirts/casual-shirt" class="product-image"><img src="https://images.unsplash.com/photo-1603252109303-2751441dd157?w=400&h=540&fit=crop&q=80" alt="Oxford Shirt"></a>
-    <div class="product-info">
-      <h3>OXFORD SHIRT MSC1104</h3>
-      <div class="product-price"><span class="current">₹799</span><span class="original">₹1,299</span><span class="discount">38% off</span></div>
-      <div class="product-actions"><button class="btn-add-cart">Add to Cart</button><button class="btn-buy-now">Buy it Now</button></div>
-    </div>
-  </div>
-  <div class="product-card" data-id="p_005">
-    <a href="#category/shirts/casual-shirt" class="product-image"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=540&fit=crop&q=80" alt="Linen Shirt"></a>
-    <div class="product-info">
-      <h3>LINEN SHIRTS MSC1057</h3>
-      <div class="product-price"><span class="current">₹999</span><span class="original">₹1,599</span><span class="discount">37% off</span></div>
-      <div class="product-actions"><button class="btn-add-cart">Add to Cart</button><button class="btn-buy-now">Buy it Now</button></div>
-    </div>
-  </div>
-  <div class="product-card" data-id="p_006">
-    <a href="#category/shirts/denim-shirt" class="product-image"><img src="https://images.unsplash.com/photo-1589310243389-96a5483213a8?w=400&h=540&fit=crop&q=80" alt="Denim Shirt"></a>
-    <div class="product-info">
-      <h3>DENIM SHIRTS</h3>
-      <div class="product-price"><span class="current">₹1,099</span><span class="original">₹1,699</span><span class="discount">35% off</span></div>
-      <div class="product-actions"><button class="btn-add-cart">Add to Cart</button><button class="btn-buy-now">Buy it Now</button></div>
-    </div>
-  </div>
-</div>
-
-<!-- T-SHIRTS SECTION -->
-<div class="section-header" id="tshirts">
-  <h2>T-Shirts</h2>
-  <a href="#category/tshirts" class="view-all">View all</a>
-</div>
-<div class="products-grid">
-  <div class="product-card" data-id="p_ts_01">
-    <a href="#category/tshirts/oversized-tshirt" class="product-image"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=540&fit=crop&q=80" alt="Oversized T-shirt"></a>
-    <div class="product-info">
-      <h3>MINIMAL OVERSIZED T-SHIRT</h3>
-      <div class="product-price"><span class="current">₹699</span><span class="original">₹1,099</span><span class="discount">36% off</span></div>
-      <div class="product-actions"><button class="btn-add-cart">Add to Cart</button><button class="btn-buy-now">Buy it Now</button></div>
-    </div>
-  </div>
-  <div class="product-card" data-id="p_ts_03">
-    <a href="#category/tshirts/drop-shoulder-tshirt" class="product-image"><img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=400&h=540&fit=crop&q=80" alt="Drop Shoulder T-Shirt"></a>
-    <div class="product-info">
-      <h3>RAW EDGE DROP-SHOULDER T-SHIRT</h3>
-      <div class="product-price"><span class="current">₹649</span><span class="original">₹999</span><span class="discount">35% off</span></div>
-      <div class="product-actions"><button class="btn-add-cart">Add to Cart</button><button class="btn-buy-now">Buy it Now</button></div>
-    </div>
-  </div>
-  <div class="product-card" data-id="p_ts_07">
-    <a href="#category/tshirts/heavyweight-tshirt" class="product-image"><img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=400&h=540&fit=crop&q=80" alt="Heavyweight T-Shirt"></a>
-    <div class="product-info">
-      <h3>260 GSM SOLID HEAVYWEIGHT TEE</h3>
-      <div class="product-price"><span class="current">₹849</span><span class="original">₹1,399</span><span class="discount">39% off</span></div>
-      <div class="product-actions"><button class="btn-add-cart">Add to Cart</button><button class="btn-buy-now">Buy it Now</button></div>
-    </div>
-  </div>
-  <div class="product-card" data-id="p_ts_09">
-    <a href="#category/tshirts/streetwear-tshirt" class="product-image"><img src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?w=400&h=540&fit=crop&q=80" alt="Streetwear T-Shirt"></a>
-    <div class="product-info">
-      <h3>TOKYO CIPHER STREETWEAR GRAPHIC TEE</h3>
-      <div class="product-price"><span class="current">₹799</span><span class="original">₹1,299</span><span class="discount">38% off</span></div>
-      <div class="product-actions"><button class="btn-add-cart">Add to Cart</button><button class="btn-buy-now">Buy it Now</button></div>
-    </div>
-  </div>
-</div>
-
-<!-- PANTS SECTION -->
-<div class="section-header" id="pants">
-  <h2>Pants</h2>
-  <a href="#category/pants" class="view-all">View all</a>
-</div>
-<div class="products-grid">
-  <div class="product-card" data-id="p_001">
-    <a href="#category/pants/wide-leg-pants" class="product-image"><img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&h=540&fit=crop&q=80" alt="Linen Pants"></a>
-    <div class="product-info">
-      <h3>LINEN PLEATED WIDE-LEG PANTS MPJ0089</h3>
-      <div class="product-price"><span class="current">₹1,299</span><span class="original">₹1,999</span><span class="discount">35% off</span></div>
-      <div class="product-actions"><button class="btn-add-cart">Add to Cart</button><button class="btn-buy-now">Buy it Now</button></div>
-    </div>
-  </div>
-  <div class="product-card" data-id="p_004">
-    <a href="#category/pants/baggy-pants" class="product-image"><img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=540&fit=crop&q=80" alt="Black Denim"></a>
-    <div class="product-info">
-      <h3>NO FADE BLACK LYCRA DENIM BAGGY PANTS</h3>
-      <div class="product-price"><span class="current">₹1,499</span><span class="original">₹2,199</span><span class="discount">32% off</span></div>
-      <div class="product-actions"><button class="btn-add-cart">Add to Cart</button><button class="btn-buy-now">Buy it Now</button></div>
-    </div>
-  </div>
-  <div class="product-card" data-id="p_pt_03">
-    <a href="#category/pants/cargo-pants" class="product-image"><img src="https://images.unsplash.com/photo-1517445312882-bc9910d016b7?w=400&h=540&fit=crop&q=80" alt="Cargo Pants"></a>
-    <div class="product-info">
-      <h3>TACTICAL 6-POCKET CARGO PANTS</h3>
-      <div class="product-price"><span class="current">₹1,599</span><span class="original">₹2,499</span><span class="discount">36% off</span></div>
-      <div class="product-actions"><button class="btn-add-cart">Add to Cart</button><button class="btn-buy-now">Buy it Now</button></div>
-    </div>
-  </div>
-  <div class="product-card" data-id="p_pt_05">
-    <a href="#category/pants/parachute-pants" class="product-image"><img src="https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=400&h=540&fit=crop&q=80" alt="Parachute Pants"></a>
-    <div class="product-info">
-      <h3>WINDBREAKER NYLON PARACHUTE PANTS</h3>
-      <div class="product-price"><span class="current">₹1,399</span><span class="original">₹2,199</span><span class="discount">36% off</span></div>
-      <div class="product-actions"><button class="btn-add-cart">Add to Cart</button><button class="btn-buy-now">Buy it Now</button></div>
-    </div>
-  </div>
-</div>
-
-<!-- TESTIMONIALS -->
-<section class="testimonials-section">
-  <h2>Don't just take our word for it</h2>
-  <div class="testimonials-grid">
-    <div class="testimonial-card">
-      <div class="testimonial-stars">★★★★★</div>
-      <p class="testimonial-text">"Amazing quality shirts at such affordable prices! The linen fabric feels premium and the fit is perfect. Will definitely order again."</p>
-      <div class="testimonial-author">Rahul M. <span>— Kochi</span></div>
-    </div>
-    <div class="testimonial-card">
-      <div class="testimonial-stars">★★★★★</div>
-      <p class="testimonial-text">"Fast delivery and excellent packaging. The denim pants are exactly as shown in the pictures. Best online shopping experience!"</p>
-      <div class="testimonial-author">Arun K. <span>— Calicut</span></div>
-    </div>
-    <div class="testimonial-card">
-      <div class="testimonial-stars">★★★★★</div>
-      <p class="testimonial-text">"I've been a loyal customer for over a year. Their in-house manufacturing really shows in the quality. Highly recommended!"</p>
-      <div class="testimonial-author">Faisal N. <span>— Malappuram</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="faq-section">
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq-item">
-    <button class="faq-question">What is your return & exchange policy?<span class="faq-icon">+</span></button>
-    <div class="faq-answer"><div class="faq-answer-inner">We don't accept returns or exchanges for size issues, as we provide a detailed size chart before purchase. If the product arrives damaged, incorrect, or in the wrong size, you can return it. Please record a quick 360° video while opening your package. If there's a problem, contact us right away and send the item back within 3 days. Once we receive it, we'll issue a refund or replacement.</div></div>
-  </div>
-  <div class="faq-item">
-    <button class="faq-question">How long does shipping take?<span class="faq-icon">+</span></button>
-    <div class="faq-answer"><div class="faq-answer-inner">Orders placed before 12:00 PM are shipped the same day. Orders placed after 12:00 PM are shipped the next working day. Delivery within Kerala usually takes 1–3 working days. For locations outside Kerala, delivery takes 1–4 working days. We use express courier services for faster shipping. Once shipped, a tracking ID will be shared so you can follow your order until it reaches your doorstep.</div></div>
-  </div>
-  <div class="faq-item">
-    <button class="faq-question">Where are your products manufactured?<span class="faq-icon">+</span></button>
-    <div class="faq-answer"><div class="faq-answer-inner">All our products are designed and manufactured in our own in-house facility in India. While some of the fabrics are sourced internationally (such as from China and Thailand), the entire design and production process is carried out by our team. Each item goes through strict quality checks to ensure it meets our standards before being delivered to you.</div></div>
-  </div>
-  <div class="faq-item">
-    <button class="faq-question">What are the shipping charges?<span class="faq-icon">+</span></button>
-    <div class="faq-answer"><div class="faq-answer-inner">We charge a flat shipping fee of ₹55 on all orders. At the moment, we accept only prepaid orders and do not offer Cash on Delivery. If a return is required due to a mistake on our side (such as a wrong or damaged item), we will cover the return shipping cost and refund the full amount.</div></div>
-  </div>
-  <div class="faq-item">
-    <button class="faq-question">Are there any Final Sale items?<span class="faq-icon">+</span></button>
-    <div class="faq-answer"><div class="faq-answer-inner">Yes, items marked as Final Sale cannot be returned or exchanged. These include discounted and clearance products. Final Sale items will always be clearly mentioned at the time of purchase.</div></div>
-  </div>
-<!-- CONTACT US -->
-<section class="contact-section" id="contact">
-  <div class="contact-inner">
-    <div class="contact-text">
-      <h2>Contact Us</h2>
-      <p>Please enter your details below. Whether it's an inquiry or an order, we will reach out to you as soon as possible.</p>
-    </div>
-    <div class="contact-form-container">
-      <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(window.submitted){ document.getElementById('success-overlay').classList.add('open'); document.getElementById('gform').reset(); window.submitted=false; document.getElementById('contact-submit-btn').textContent='Submit Details'; }"></iframe>
-      <form id="gform" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfOaalLTMetGlfoupTT_rlMfzmi4UVJ6FrCqcVnvdjJSXenfg/formResponse" method="POST" target="hidden_iframe" onsubmit="window.submitted=true; document.getElementById('contact-submit-btn').textContent='Submitting...';">
-        <div class="form-row">
-          <input type="text" name="entry.1939446848" placeholder="Full Name" class="contact-input" required>
-          <input type="tel" name="entry.673243831" placeholder="Phone Number" class="contact-input" required>
-        </div>
-        <input type="email" name="entry.325896176" placeholder="Email Address" class="contact-input" required>
-        <textarea name="entry.875857797" placeholder="Address (House No, Building, Street)" class="contact-input" rows="3" required></textarea>
-        <div class="form-row">
-          <input type="text" name="entry.1460563414" placeholder="City" class="contact-input" required>
-          <input type="text" name="entry.473302059" placeholder="PIN Code" class="contact-input" required>
-        </div>
-        <button type="submit" class="btn-submit" id="contact-submit-btn">Submit Details</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-grid">
-    <div class="footer-col">
-      <h4>Contact Info</h4>
-      <div class="footer-contact-info">
-        <p><strong>Phone:</strong> +91 8075491754</p>
-        <p><strong>Email:</strong> cf.online@comfortfactory.in</p>
-        <p style="margin-top:12px"><strong>Manufactured & Marketed by:</strong><br>
-          COMFORT FACTORY<br>(Owned By BLUE TYGA FASHION PRIVATE LIMITED)<br>
-          Floor No.: 43/2856, 43/2876, 43/2877<br>
-          Building No.: 43/2853, 43/2854, 43/2855<br>
-          Kolathara Po, Cheruvannur<br>
-          Feroke, Kozhikode<br>
-          Kerala — 673655</p>
-        <p style="margin-top:8px"><strong>Customer Care:</strong><br>cf.online@comfortfactory.in<br>+91 9249524744</p>
-      </div>
-    </div>
-    <div class="footer-col">
-      <h4>Quick Links</h4>
-      <a href="#contact">Contact Us</a>
-      <a href="#">Return & Refunds</a>
-      <a href="#">FAQs</a>
-    </div>
-    <div class="footer-col">
-      <h4>Policies</h4>
-      <a href="#">Privacy Policy</a>
-      <a href="#">Refund Policy</a>
-      <a href="#">Shipping Policy</a>
-      <a href="#">Terms of Service</a>
-    </div>
-    <div class="footer-col">
-      <h4>Our Stores</h4>
-      <a href="#">Kottakkal</a>
-      <a href="#">Koduvally</a>
-      <a href="#">Kondotty</a>
-      <a href="#">Manjeri</a>
-      <a href="#">Modern Bazar</a>
-      <a href="#">Perinthalmanna</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2025 Comfort Factory. All rights reserved.</span>
-    <span>Powered by Comfort Factory</span>
-  </div>
-</footer>
-
-<!-- SEARCH OVERLAY -->
-<div id="search-overlay" style="position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:5000;display:flex;align-items:flex-start;justify-content:center;padding-top:120px;opacity:0;visibility:hidden;transition:all .3s;">
-  <div style="width:90%;max-width:600px;">
-    <div style="display:flex;align-items:center;gap:12px;">
-      <input id="search-input" type="text" placeholder="Search products..." style="flex:1;padding:16px 20px;border:none;border-bottom:2px solid #fff;background:transparent;color:#fff;font-size:1.1rem;outline:none;font-family:inherit;">
-      <button id="search-close" style="color:#fff;font-size:1.8rem;background:none;border:none;cursor:pointer;">✕</button>
-    </div>
-  </div>
-</div>
-
-<!-- CART DRAWER -->
-<div class="cart-drawer-overlay"></div>
-<div class="cart-drawer">
-  <div class="cart-drawer-header">
-    <h3>Your Cart</h3>
-    <button class="cart-drawer-close">✕</button>
-  </div>
-  <div class="cart-drawer-body">
-    <p>Your cart is empty</p>
-  </div>
-  <div class="cart-drawer-footer">
-    <div class="cart-total-row">
-      <span>Total:</span>
-      <span id="cart-total-price">₹0</span>
-    </div>
-    <button id="cart-checkout-btn">Checkout</button>
-  </div>
-</div>
-
-<!-- CHECKOUT OVERLAY -->
-<div class="checkout-overlay" id="checkout-overlay">
-  <div class="checkout-modal">
-    <button class="checkout-close" id="checkout-close">✕</button>
-    <div class="checkout-layout">
-      <!-- Order Summary -->
-      <div class="checkout-summary">
-        <h3>Order Summary</h3>
-        <div class="checkout-items" id="checkout-items-container">
-          <!-- Items will be injected here -->
-        </div>
-        <div class="checkout-totals">
-          <div class="flex-row"><span>Subtotal</span><span id="checkout-subtotal">₹0</span></div>
-          <div class="flex-row"><span>Shipping</span><span>₹55</span></div>
-          <div class="flex-row total-row"><span>Total</span><span id="checkout-total">₹0</span></div>
-        </div>
-      </div>
-      
-      <!-- Payment Form -->
-      <div class="checkout-form-container">
-        <h3>Payment & Shipping</h3>
-        <form id="checkout-form">
-          <div class="form-group">
-            <label>Contact Information</label>
-            <input type="email" id="c-email" placeholder="Email Address" required>
-            <input type="tel" id="c-phone" placeholder="Phone Number" required>
+      <!-- ==========================================
+           1. DASHBOARD HOME VIEW
+           ========================================== -->
+      <section class="view-section active" id="view-dashboard">
+        <div class="view-header">
+          <div class="view-header-title">
+            <h1>Executive Overview</h1>
+            <p>Real-time brand metrics, revenue health, and order fulfillment</p>
           </div>
-          <div class="form-group">
-            <label>Shipping Address</label>
-            <input type="text" id="c-name" placeholder="Full Name" required>
-            <textarea id="c-address" placeholder="Address (House No, Building, Street)" required></textarea>
-            <div class="form-row">
-              <input type="text" id="c-city" placeholder="City" required>
-              <input type="text" id="c-pin" placeholder="PIN Code" required>
+          <div class="view-header-actions">
+            <button class="btn-gold" id="btnQuickAddProduct">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <span>New Product</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- KPI Metrics Grid -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-top">
+              <span class="kpi-title">Total Revenue</span>
+              <div class="kpi-icon-badge">₹</div>
+            </div>
+            <div class="kpi-value" id="kpiRevenue">₹8,042</div>
+            <div class="kpi-footer">
+              <span class="kpi-trend trend-up">↑ +24.6%</span>
+              <span>vs last month</span>
             </div>
           </div>
-          <div class="form-group" style="margin-top: 24px;">
-            <div style="margin-bottom: 12px;">
-              <h2 style="font-size: 1.15rem; font-weight: 600; margin-bottom: 4px; color: #333;">Payment</h2>
-              <p style="font-size: 0.85rem; color: #666; margin: 0;">All transactions are secure and encrypted.</p>
+
+          <div class="kpi-card">
+            <div class="kpi-top">
+              <span class="kpi-title">Total Orders</span>
+              <div class="kpi-icon-badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+              </div>
+            </div>
+            <div class="kpi-value" id="kpiOrders">4</div>
+            <div class="kpi-footer">
+              <span class="kpi-trend trend-up">↑ 100%</span>
+              <span>Fulfillment rate</span>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-top">
+              <span class="kpi-title">Total Products</span>
+              <div class="kpi-icon-badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/></svg>
+              </div>
+            </div>
+            <div class="kpi-value" id="kpiProducts">16</div>
+            <div class="kpi-footer">
+              <span>Across 3 Core Categories</span>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-top">
+              <span class="kpi-title">Active Customers</span>
+              <div class="kpi-icon-badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+              </div>
+            </div>
+            <div class="kpi-value" id="kpiCustomers">4</div>
+            <div class="kpi-footer">
+              <span class="kpi-trend trend-up">↑ High loyalty</span>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-top">
+              <span class="kpi-title">Pending Orders</span>
+              <div class="kpi-icon-badge" style="color:#f59e0b; border-color:rgba(245,158,11,0.3); background:rgba(245,158,11,0.1);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+            </div>
+            <div class="kpi-value" id="kpiPendingOrders">2</div>
+            <div class="kpi-footer">
+              <span style="color:#f59e0b;">Requires dispatch</span>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-top">
+              <span class="kpi-title">Low Stock Alert</span>
+              <div class="kpi-icon-badge" style="color:#ef4444; border-color:rgba(239,68,68,0.3); background:rgba(239,68,68,0.1);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              </div>
+            </div>
+            <div class="kpi-value" id="kpiLowStock">0</div>
+            <div class="kpi-footer">
+              <span class="trend-alert">&lt; 5 units threshold</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts Grid -->
+        <div class="charts-grid">
+          <div class="card-box">
+            <div class="card-box-header">
+              <h3 class="card-box-title">Revenue Trajectory (INR ₹)</h3>
+              <div class="chart-period-tabs">
+                <button class="period-tab active" data-period="monthly">Monthly</button>
+                <button class="period-tab" data-period="weekly">Weekly</button>
+                <button class="period-tab" data-period="daily">Daily</button>
+              </div>
+            </div>
+            <div class="chart-canvas-container">
+              <canvas id="revenueChart"></canvas>
+            </div>
+          </div>
+
+          <div class="card-box">
+            <div class="card-box-header">
+              <h3 class="card-box-title">Sales by Category</h3>
+            </div>
+            <div class="chart-canvas-container">
+              <canvas id="categoryChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Orders & Top Selling Table in Dashboard -->
+        <div class="card-box" style="margin-bottom: 24px;">
+          <div class="card-box-header">
+            <h3 class="card-box-title">Recent Purchase Orders</h3>
+            <button class="btn-secondary-outline" id="btnViewAllOrdersFromDash">View All Orders →</button>
+          </div>
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Customer</th>
+                  <th>Items</th>
+                  <th>Amount</th>
+                  <th>Payment</th>
+                  <th>Status</th>
+                  <th>Date</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="dashRecentOrdersTable">
+                <!-- Dynamically rendered -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           2. PRODUCT MANAGEMENT VIEW
+           ========================================== -->
+      <section class="view-section" id="view-products">
+        <div class="view-header">
+          <div class="view-header-title">
+            <h1>Product Catalog</h1>
+            <p>Manage apparel catalog, variant stock matrix, pricing, and discount automation</p>
+          </div>
+          <div class="view-header-actions">
+            <button class="btn-secondary-outline" id="btnExportProductsCSV">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Export CSV</span>
+            </button>
+            <button class="btn-gold" id="btnOpenAddProductModal">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <span>Add Clothing Item</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="card-box">
+          <div class="table-filter-bar">
+            <div class="search-input-group">
+              <input type="text" class="form-input" id="searchProductInput" placeholder="Filter by product name, SKU, or category...">
+            </div>
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">
+              <select class="filter-select" id="filterProductCategory">
+                <option value="all">All Categories</option>
+                <option value="shirts">Shirts (5 types)</option>
+                <option value="tshirts">T-Shirts (6 types)</option>
+                <option value="pants">Pants (4 types)</option>
+              </select>
+              <select class="filter-select" id="filterProductStock">
+                <option value="all">All Stock Status</option>
+                <option value="in_stock">In Stock (> 5)</option>
+                <option value="low_stock">Low Stock (≤ 5)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Category / Sub-type</th>
+                  <th>MRP</th>
+                  <th>Selling Price</th>
+                  <th>Discount</th>
+                  <th>Stock Units</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="productsTableBody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           3. CATEGORY MANAGEMENT VIEW
+           ========================================== -->
+      <section class="view-section" id="view-categories">
+        <div class="view-header">
+          <div class="view-header-title">
+            <h1>Category & Sub-Type Hierarchy</h1>
+            <p>Full control over Shirts, T-Shirts, and Pants collections. (Shorts & Innerwear strictly purged)</p>
+          </div>
+          <div class="view-header-actions">
+            <button class="btn-gold" id="btnAddNewSubType">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <span>Add Sub-Type</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="category-manager-grid" id="categoryCardsGrid">
+          <!-- Dynamically populated -->
+        </div>
+      </section>
+
+      <!-- ==========================================
+           4. INVENTORY MANAGEMENT VIEW
+           ========================================== -->
+      <section class="view-section" id="view-inventory">
+        <div class="view-header">
+          <div class="view-header-title">
+            <h1>Inventory & Stock Control</h1>
+            <p>Real-time size/color variant tracking, threshold alerts, and stock audit history</p>
+          </div>
+          <div class="view-header-actions">
+            <button class="btn-secondary-outline" id="btnExportInventoryCSV">Export Inventory CSV</button>
+          </div>
+        </div>
+
+        <div class="card-box" style="margin-bottom: 24px;">
+          <div class="card-box-header">
+            <h3 class="card-box-title">Stock Overview by Variant Matrix</h3>
+          </div>
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>SKU</th>
+                  <th>Product Name</th>
+                  <th>Category</th>
+                  <th>Total Stock</th>
+                  <th>Variant Breakdown (Size - Color)</th>
+                  <th>Threshold Status</th>
+                  <th>Quick Adjust</th>
+                </tr>
+              </thead>
+              <tbody id="inventoryTableBody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card-box">
+          <div class="card-box-header">
+            <h3 class="card-box-title">Inventory Movement Audit Log</h3>
+          </div>
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Timestamp</th>
+                  <th>Product</th>
+                  <th>Variant</th>
+                  <th>Qty Change</th>
+                  <th>New Level</th>
+                  <th>Reason / Context</th>
+                  <th>Authorized By</th>
+                </tr>
+              </thead>
+              <tbody id="inventoryLogsTableBody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           5. ORDER MANAGEMENT VIEW
+           ========================================== -->
+      <section class="view-section" id="view-orders">
+        <div class="view-header">
+          <div class="view-header-title">
+            <h1>Order Fulfillment & Invoicing</h1>
+            <p>Lifecycle tracking from Pending to Delivered, with printable luxury invoices</p>
+          </div>
+          <div class="view-header-actions">
+            <button class="btn-secondary-outline" id="btnExportOrdersCSV">Export Orders CSV</button>
+          </div>
+        </div>
+
+        <div class="card-box">
+          <div class="table-filter-bar">
+            <div class="search-input-group">
+              <input type="text" class="form-input" id="searchOrdersInput" placeholder="Search by Order ID, customer name, phone...">
+            </div>
+            <select class="filter-select" id="filterOrderStatus">
+              <option value="all">All Statuses</option>
+              <option value="pending">Pending</option>
+              <option value="confirmed">Confirmed</option>
+              <option value="shipped">Shipped</option>
+              <option value="delivered">Delivered</option>
+              <option value="cancelled">Cancelled</option>
+            </select>
+          </div>
+
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Order #</th>
+                  <th>Customer Info</th>
+                  <th>Purchased Items</th>
+                  <th>Order Total</th>
+                  <th>Payment Method</th>
+                  <th>Current Status</th>
+                  <th>Tracking / Carrier</th>
+                  <th>Invoice & Actions</th>
+                </tr>
+              </thead>
+              <tbody id="ordersTableBody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           6. CUSTOMER MANAGEMENT VIEW
+           ========================================== -->
+      <section class="view-section" id="view-customers">
+        <div class="view-header">
+          <div class="view-header-title">
+            <h1>CUSTOMER MANAGEMENT</h1>
+            <p>Comprehensive customer registry, order history, lifetime spending, delivery addresses, and account controls</p>
+          </div>
+          <div class="view-header-actions">
+            <button class="btn-secondary-outline" id="btnOpenAuditLogs">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><circle cx="12" cy="11" r="3"/></svg>
+              <span>Audit Logs</span>
+            </button>
+            <button class="btn-gold" id="btnExportCustomersCSV">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Export CSV</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Customer KPI Metric Cards -->
+        <div class="kpi-grid" style="margin-bottom: 24px;">
+          <div class="kpi-card">
+            <div class="kpi-top">
+              <span class="kpi-title">Total Customers</span>
+              <div class="kpi-icon-badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+            </div>
+            <div class="kpi-value" id="adminTotalCustomersCount">0</div>
+            <div class="kpi-footer">
+              <span class="kpi-trend trend-up">Registered accounts</span>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-top">
+              <span class="kpi-title">Active Accounts</span>
+              <div class="kpi-icon-badge" style="color:#10b981; background:rgba(16, 185, 129, 0.1); border-color:rgba(16, 185, 129, 0.2);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+            </div>
+            <div class="kpi-value" id="adminActiveCustomersCount">0</div>
+            <div class="kpi-footer">
+              <span class="kpi-trend trend-up">In good standing</span>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-top">
+              <span class="kpi-title">Disabled Accounts</span>
+              <div class="kpi-icon-badge" style="color:#ef4444; background:rgba(239, 68, 68, 0.1); border-color:rgba(239, 68, 68, 0.2);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+              </div>
+            </div>
+            <div class="kpi-value" id="adminDisabledCustomersCount">0</div>
+            <div class="kpi-footer">
+              <span class="kpi-trend" style="color:var(--text-dim);">Access restricted</span>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-top">
+              <span class="kpi-title">Total Customer Spending</span>
+              <div class="kpi-icon-badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+            </div>
+            <div class="kpi-value" id="adminTotalCustomerSpending">₹0</div>
+            <div class="kpi-footer">
+              <span class="kpi-trend trend-up">Completed orders</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter & Search Controls -->
+        <div class="card-box">
+          <div class="table-filter-bar" style="display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between; margin-bottom:16px;">
+            <div class="search-input-group" style="flex:1; min-width:260px;">
+              <input type="text" class="form-input" id="searchCustomersInput" placeholder="Search by name, email, mobile number, or city...">
             </div>
             
-            <div style="border: 1px solid #d9d9d9; border-radius: 6px; overflow: hidden; background: #fff;">
-              <!-- Header -->
-              <div style="padding: 16px; display: flex; justify-content: space-between; align-items: center; background: #f4f6f8; border-bottom: 1px solid #d9d9d9;">
-                <span style="font-weight: 500; color: #333; font-size: 0.95rem;">Easebuzz</span>
-                <div style="display: flex; gap: 6px;">
-                  <!-- VISA -->
-                  <svg width="34" height="22" viewBox="0 0 34 22" style="border:1px solid #e0e0e0; border-radius:3px; background:#fff;"><rect width="34" height="22" fill="#fff" rx="3"/><text x="4" y="15" font-size="11" font-family="Arial, sans-serif" font-weight="bold" fill="#1434CB" letter-spacing="-0.5">VISA</text></svg>
-                  <!-- Mastercard -->
-                  <svg width="34" height="22" viewBox="0 0 34 22" style="border:1px solid #e0e0e0; border-radius:3px; background:#fff;"><rect width="34" height="22" fill="#fff" rx="3"/><circle cx="13" cy="11" r="6" fill="#EB001B"/><circle cx="21" cy="11" r="6" fill="#F79E1B" opacity="0.8"/></svg>
-                  <!-- Bank icon -->
-                  <svg width="34" height="22" viewBox="0 0 34 22" style="border:1px solid #e0e0e0; border-radius:3px; background:#fff;"><rect width="34" height="22" fill="#fff" rx="3"/><path d="M17 6l6 4h-12l6-4zM11 12h12v3H11v-3z" fill="#333"/></svg>
-                </div>
-              </div>
-              <!-- Body -->
-              <div style="padding: 32px 24px; text-align: center; background: #fafafa; font-size: 0.9rem; color: #555; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                <svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.2" style="margin-bottom: 16px;"><rect x="3" y="5" width="18" height="14" rx="2" ry="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                You'll be redirected to Easebuzz to complete your purchase.
-              </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+              <select class="form-select filter-select" id="filterCustomerStatus" style="width:auto; height:38px; font-size:0.85rem;">
+                <option value="all">All Account Statuses</option>
+                <option value="active">Active Only</option>
+                <option value="disabled">Disabled Only</option>
+              </select>
+
+              <select class="form-select filter-select" id="filterCustomerDate" style="width:auto; height:38px; font-size:0.85rem;">
+                <option value="all">Registration: All Time</option>
+                <option value="today">Registered Today</option>
+                <option value="week">Past 7 Days</option>
+                <option value="month">Past 30 Days</option>
+              </select>
+
+              <select class="form-select filter-select" id="sortCustomers" style="width:auto; height:38px; font-size:0.85rem;">
+                <option value="recent">Sort: Newest First</option>
+                <option value="spending">Sort: Highest Spending</option>
+                <option value="orders">Sort: Most Orders</option>
+                <option value="name">Sort: Full Name (A-Z)</option>
+              </select>
+
+              <select class="form-select filter-select" id="customerPageLimit" style="width:auto; height:38px; font-size:0.85rem;">
+                <option value="10">10 / page</option>
+                <option value="25">25 / page</option>
+                <option value="50">50 / page</option>
+                <option value="all">All</option>
+              </select>
             </div>
           </div>
 
-          <div class="form-group" style="margin-top: 24px; margin-bottom: 24px;">
-            <h2 style="font-size: 1.15rem; font-weight: 600; margin-bottom: 12px; color: #333;">Billing address</h2>
-            <div style="border: 1px solid #d9d9d9; border-radius: 6px; overflow: hidden; background: #fff;">
-              <label style="display: flex; align-items: center; padding: 16px; border-bottom: 1px solid #d9d9d9; cursor: pointer; margin: 0; background: #f4f6f8;">
-                <input type="radio" name="billing_address" value="same" checked style="margin-right: 12px; accent-color: #0058a3; width: 16px; height: 16px;">
-                <span style="font-weight: 500; font-size: 0.95rem; color: #333;">Same as shipping address</span>
-              </label>
-              <label style="display: flex; align-items: center; padding: 16px; cursor: pointer; margin: 0;">
-                <input type="radio" name="billing_address" value="different" style="margin-right: 12px; accent-color: #0058a3; width: 16px; height: 16px;">
-                <span style="font-weight: 400; font-size: 0.95rem; color: #555;">Use a different billing address</span>
-              </label>
+          <!-- Customer Management Professional Table -->
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Customer ID</th>
+                  <th>Full Name</th>
+                  <th>Email</th>
+                  <th>Mobile Number</th>
+                  <th>Delivery Address</th>
+                  <th>City</th>
+                  <th>State</th>
+                  <th>PIN Code</th>
+                  <th>Registration Date</th>
+                  <th style="text-align:center;">Total Orders</th>
+                  <th style="text-align:right;">Total Spending</th>
+                  <th>Account Status</th>
+                  <th style="text-align:center;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="customersTableBody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Table Pagination Footer -->
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:20px; padding-top:16px; border-top:1px solid var(--border-subtle); flex-wrap:wrap; gap:12px;">
+            <div style="font-size:0.85rem; color:var(--text-muted);" id="customerPaginationInfo">
+              Showing 0 to 0 of 0 customers
+            </div>
+            <div style="display:flex; gap:6px; align-items:center;" id="customerPaginationControls">
+              <button class="btn-secondary-outline" id="btnCustPrevPage" style="padding:6px 14px; font-size:0.8rem;" disabled>&larr; Previous</button>
+              <div id="custPageNumbers" style="display:flex; gap:4px;"></div>
+              <button class="btn-secondary-outline" id="btnCustNextPage" style="padding:6px 14px; font-size:0.8rem;" disabled>Next &rarr;</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           6B. CUSTOMER DATABASE – GOOGLE SHEETS VIEW
+           ========================================== -->
+      <section class="view-section" id="view-google-sheets">
+        <div class="view-header" style="flex-wrap:wrap; gap:16px;">
+          <div class="view-header-title">
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:4px;">
+              <h1 style="margin:0;">CUSTOMER DATABASE – GOOGLE SHEETS</h1>
+              <span class="badge-status status-badge-active" style="display:inline-flex; align-items:center; gap:6px; font-size:0.75rem; letter-spacing:0.5px;">
+                <span style="width:8px; height:8px; border-radius:50%; background:#10b981; display:inline-block; box-shadow:0 0 8px #10b981;"></span>
+                CONNECTED &amp; SYNCHRONIZED
+              </span>
+            </div>
+            <p style="margin:0;">Real-time automated synchronization with Google Drive account <strong style="color:var(--gold-primary);">abhinandkilivayil@gmail.com</strong> | Destination: <strong style="color:#fff;">CLOTHING STORE – CUSTOMER DATABASE</strong></p>
+          </div>
+          <div class="view-header-actions" style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a href="https://docs.google.com/spreadsheets/d/15UoQivVjSo82UWmB-cZo75M2Hquqgzp-pVfEDD2G8QM/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-gold" style="background:#0f9d58; border-color:#0f9d58; text-decoration:none; display:inline-flex; align-items:center; gap:8px;" id="btnOpenGoogleSheets">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              <span>Open Google Sheets</span>
+            </a>
+            <button class="btn-gold" id="btnSyncCustomerDataNow" style="display:inline-flex; align-items:center; gap:8px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="syncSheetsIcon"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+              <span>Sync Customer Data</span>
+            </button>
+            <button class="btn-secondary-outline" id="btnExportCustomerDataSheets" style="display:inline-flex; align-items:center; gap:8px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Export Customer Data</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Google Integration Status Banner -->
+        <div class="card-box" style="margin-bottom:20px; background:linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%); border:1px solid rgba(16, 185, 129, 0.3);">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+            <div style="display:flex; align-items:center; gap:14px;">
+              <div style="width:48px; height:48px; border-radius:10px; background:rgba(15, 157, 88, 0.15); display:flex; align-items:center; justify-content:center; color:#0f9d58;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>
+              </div>
+              <div>
+                <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:1px; color:#10b981; font-weight:700;">Google API Connected Destination</div>
+                <div style="font-size:1.05rem; font-weight:700; color:#fff;">abhinandkilivayil@gmail.com</div>
+                <div style="font-size:0.8rem; color:var(--text-muted);">Spreadsheet ID: <code style="color:var(--gold-primary); background:rgba(0,0,0,0.3); padding:2px 6px; border-radius:4px;">15UoQivVjSo82UWmB-cZo75M2Hquqgzp-pVfEDD2G8QM</code></div>
+              </div>
+            </div>
+            <div style="display:flex; gap:20px; flex-wrap:wrap;">
+              <div style="text-align:right;">
+                <div style="font-size:0.72rem; text-transform:uppercase; color:var(--text-muted); font-weight:600;">Synchronization Status</div>
+                <div id="sheetsSyncHealth" style="font-size:0.92rem; font-weight:700; color:#10b981;">Healthy &bull; Active Sync</div>
+              </div>
+              <div style="text-align:right;">
+                <div style="font-size:0.72rem; text-transform:uppercase; color:var(--text-muted); font-weight:600;">Last Synced</div>
+                <div id="sheetsLastSyncedTime" style="font-size:0.92rem; font-weight:700; color:#fff;">Just now</div>
+              </div>
+              <div style="text-align:right;">
+                <div style="font-size:0.72rem; text-transform:uppercase; color:var(--text-muted); font-weight:600;">Auto-Retry Queue</div>
+                <div id="sheetsRetryQueueCount" style="font-size:0.92rem; font-weight:700; color:#10b981;">0 Pending</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 KPI Summary Cards -->
+        <div class="metrics-grid" style="margin-bottom:24px;">
+          <div class="metric-card">
+            <div class="metric-icon" style="background:rgba(212,175,55,0.12); color:var(--gold-primary);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="metric-info">
+              <span class="metric-label">Total Registered Customers</span>
+              <span class="metric-value" id="sheetsTotalCustomers">5</span>
+              <span class="metric-trend trend-up">Database Source of Truth</span>
             </div>
           </div>
 
-          <button type="submit" class="btn-pay-now" id="btn-pay-now">Pay ₹0</button>
-        </form>
+          <div class="metric-card">
+            <div class="metric-icon" style="background:rgba(16,185,129,0.12); color:#10b981;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="metric-info">
+              <span class="metric-label">Synchronized Rows in Sheets</span>
+              <span class="metric-value" id="sheetsSyncedRows">5</span>
+              <span class="metric-trend trend-up">100% Up to Date</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-icon" style="background:rgba(59,130,246,0.12); color:#3b82f6;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="metric-info">
+              <span class="metric-label">Recently Registered</span>
+              <span class="metric-value" id="sheetsRecentCustomers">4</span>
+              <span class="metric-trend" style="color:#94a3b8;">This year &bull; Auto-Appended</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-icon" style="background:rgba(168,85,247,0.12); color:#a855f7;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            </div>
+            <div class="metric-info">
+              <span class="metric-label">Mapped Columns</span>
+              <span class="metric-value">15</span>
+              <span class="metric-trend" style="color:#94a3b8;">Columns A through O</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter & Search Toolbar -->
+        <div class="card-box" style="margin-bottom: 24px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; margin-bottom:18px;">
+            <div style="position:relative; flex:1; min-width:280px; max-width:440px;">
+              <input type="text" id="searchSheetsCustomersInput" placeholder="Search customer by name, email, mobile, city..." style="width:100%; padding:10px 14px 10px 38px; background:var(--bg-input); border:1px solid var(--border-subtle); border-radius:8px; color:#fff; font-size:0.88rem;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="position:absolute; left:12px; top:50%; transform:translateY(-50%); color:var(--text-muted);"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+
+            <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+              <select id="filterSheetsCategory" style="padding:10px 14px; background:var(--bg-input); border:1px solid var(--border-subtle); border-radius:8px; color:#fff; font-size:0.85rem;">
+                <option value="all">View All Customers</option>
+                <option value="recent">Recently Registered Customers</option>
+                <option value="active">Active Accounts</option>
+                <option value="disabled">Disabled Accounts</option>
+                <option value="verified">Email Verified Only</option>
+              </select>
+
+              <button class="btn-secondary-outline" id="btnRefreshSheetsTable" style="display:inline-flex; align-items:center; gap:6px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                <span>Refresh View</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Customer Database Google Sheets Synchronized Table -->
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Customer ID</th>
+                  <th>Full Name</th>
+                  <th>Gmail / Email Address</th>
+                  <th>Mobile Number</th>
+                  <th>Delivery Location</th>
+                  <th>Registration Date</th>
+                  <th>Email Verification</th>
+                  <th>Account Status</th>
+                  <th>Last Login Date</th>
+                  <th>Google Sheet Sync</th>
+                  <th style="text-align:right;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="sheetsCustomersTableBody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Google Sheets Synchronization Logs & Real-Time Console -->
+        <div class="card-box" style="margin-bottom: 24px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+            <div>
+              <h3 style="margin:0; font-size:1.05rem; color:#fff;">Live Synchronization Audit Stream</h3>
+              <p style="margin:0; font-size:0.8rem; color:var(--text-muted);">Real-time log of background synchronization events, updates, and automatic retries</p>
+            </div>
+            <button class="btn-secondary-outline" id="btnTriggerRetryQueue" style="font-size:0.78rem; padding:6px 12px;">
+              Process Retry Queue
+            </button>
+          </div>
+          <div id="sheetsSyncLogsContainer" style="background:#090d16; border:1px solid #1e293b; border-radius:8px; padding:12px 16px; max-height:220px; overflow-y:auto; font-family:monospace; font-size:0.78rem;">
+            <div style="color:#64748b; text-align:center; padding:10px;">Loading synchronization audit log...</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           7. OFFERS & COUPONS VIEW
+           ========================================== -->
+      <section class="view-section" id="view-coupons">
+        <div class="view-header">
+          <div class="view-header-title">
+            <h1>Promotions & Coupons</h1>
+            <p>Create promotional discounts with minimum spend constraints and expiry automation</p>
+          </div>
+          <div class="view-header-actions">
+            <button class="btn-gold" id="btnOpenAddCouponModal">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <span>Create Coupon</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="card-box">
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Coupon Code</th>
+                  <th>Type</th>
+                  <th>Discount Value</th>
+                  <th>Min Spend</th>
+                  <th>Usage Count</th>
+                  <th>Expires On</th>
+                  <th>Status</th>
+                  <th>Toggle / Actions</th>
+                </tr>
+              </thead>
+              <tbody id="couponsTableBody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           8. HOMEPAGE & BANNERS VIEW
+           ========================================== -->
+      <section class="view-section" id="view-banners">
+        <div class="view-header">
+          <div class="view-header-title">
+            <h1>Homepage Hero & Announcement Management</h1>
+            <p>Update storefront hero slideshow banners, headline texts, and marquee alerts</p>
+          </div>
+          <div class="view-header-actions">
+            <button class="btn-gold" id="btnSaveBannersSettings">Save Banner Changes</button>
+          </div>
+        </div>
+
+        <div class="card-box" style="margin-bottom: 24px;">
+          <h3 class="card-box-title" style="margin-bottom: 16px;">Top Announcement Bar Messages</h3>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:12px;">Comma-separated messages cycling across the storefront top marquee.</p>
+          <textarea class="form-textarea" id="announcementMarqueeInput">Free Shipping on Orders Above ₹999, Served Over 2.5 Lakh Customers, We Craft What We Sell, All For Your Comfort</textarea>
+        </div>
+
+        <div class="card-box">
+          <h3 class="card-box-title" style="margin-bottom: 20px;">Hero Slideshow Slides</h3>
+          <div id="heroSlidesList">
+            <!-- Dynamically populated slide cards -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           9. SALES & REPORTS VIEW
+           ========================================== -->
+      <section class="view-section" id="view-reports">
+        <div class="view-header">
+          <div class="view-header-title">
+            <h1>Sales Performance & Tax Reports</h1>
+            <p>Gross vs Net sales, category performance breakdowns, and financial exports</p>
+          </div>
+          <div class="view-header-actions">
+            <button class="btn-secondary-outline" id="btnExportFullFinancialCSV">Export Financial Summary (CSV)</button>
+          </div>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-title">Gross Merchandise Value</div>
+            <div class="kpi-value" id="repGrossSales">₹8,042</div>
+            <div class="kpi-footer">Total catalog orders</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-title">Total GST Collected (12%)</div>
+            <div class="kpi-value" id="repTaxCollected">₹965</div>
+            <div class="kpi-footer">State & Central GST</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-title">Discounts Absorbed</div>
+            <div class="kpi-value" id="repDiscounts">₹300</div>
+            <div class="kpi-footer">Promotional savings</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-title">Net Operating Revenue</div>
+            <div class="kpi-value" id="repNetRevenue">₹7,742</div>
+            <div class="kpi-footer">Net of discounts</div>
+          </div>
+        </div>
+
+        <div class="card-box">
+          <div class="card-box-header">
+            <h3 class="card-box-title">Best-Performing Clothing Products</h3>
+          </div>
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>Product Title</th>
+                  <th>Units Dispatched</th>
+                  <th>Category</th>
+                  <th>Velocity Status</th>
+                </tr>
+              </thead>
+              <tbody id="topSellingTableBody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           10. SHIPPING & DELIVERY VIEW
+           ========================================== -->
+      <section class="view-section" id="view-shipping">
+        <div class="view-header">
+          <div class="view-header-title">
+            <h1>Shipping Logistics & Courier Rates</h1>
+            <p>Configure free delivery thresholds, flat shipping charges, and courier partners</p>
+          </div>
+          <div class="view-header-actions">
+            <button class="btn-gold" id="btnSaveShippingSettings">Save Shipping Rates</button>
+          </div>
+        </div>
+
+        <div class="card-box" style="max-width: 600px;">
+          <div class="form-control-group">
+            <label class="form-control-label">Free Shipping Minimum Cart Value (₹)</label>
+            <input type="number" class="form-input" id="cfgFreeShipping" value="999">
+            <span style="font-size:0.75rem; color:var(--text-dim); margin-top:4px; display:block;">Orders matching or exceeding this amount receive ₹0 shipping fee automatically.</span>
+          </div>
+
+          <div class="form-control-group">
+            <label class="form-control-label">Standard Shipping Flat Fee (₹)</label>
+            <input type="number" class="form-input" id="cfgStandardShipping" value="55">
+            <span style="font-size:0.75rem; color:var(--text-dim); margin-top:4px; display:block;">Applied when cart is below the free shipping threshold.</span>
+          </div>
+
+          <div class="form-control-group">
+            <label class="form-control-label">Estimated Standard Delivery Window</label>
+            <input type="text" class="form-input" id="cfgDeliveryWindow" value="3 - 5 Business Days">
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           11. PAYMENT MANAGEMENT VIEW
+           ========================================== -->
+      <section class="view-section" id="view-payments">
+        <div class="view-header">
+          <div class="view-header-title">
+            <h1>Payment Gateways & Transactions</h1>
+            <p>Monitor Easebuzz, UPI, Card, and Cash on Delivery settlements</p>
+          </div>
+        </div>
+
+        <div class="card-box">
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Transaction ID</th>
+                  <th>Order #</th>
+                  <th>Customer</th>
+                  <th>Method</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Settlement Date</th>
+                </tr>
+              </thead>
+              <tbody id="paymentLogsTableBody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           12. STAFF & RBAC VIEW
+           ========================================== -->
+      <section class="view-section" id="view-staff">
+        <div class="view-header">
+          <div class="view-header-title">
+            <h1>Staff Roles & Access Control (RBAC)</h1>
+            <p>Manage administrative personnel, role authorizations, and audit compliance</p>
+          </div>
+          <div class="view-header-actions">
+            <button class="btn-gold" id="btnOpenAddStaffModal">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <span>Add Staff Account</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="card-box">
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Staff Member</th>
+                  <th>Username / Email</th>
+                  <th>Assigned Role</th>
+                  <th>Access Privileges</th>
+                  <th>Account Status</th>
+                </tr>
+              </thead>
+              <tbody id="staffTableBody">
+                <tr>
+                  <td><strong>Najwan</strong></td>
+                  <td>najwan12@N12</td>
+                  <td><span class="badge-status status-badge-confirmed">Super Admin</span></td>
+                  <td>Full Master Access (Products, Finance, RBAC, Settings)</td>
+                  <td><span class="badge-status status-badge-active">Active</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Vikram Sethi</strong></td>
+                  <td>vikram@comfortfactory.com</td>
+                  <td><span class="badge-status status-badge-shipped">Product Manager</span></td>
+                  <td>Product & Inventory CRUD, Categories</td>
+                  <td><span class="badge-status status-badge-active">Active</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Priya Sharma</strong></td>
+                  <td>priya@comfortfactory.com</td>
+                  <td><span class="badge-status status-badge-pending">Order Manager</span></td>
+                  <td>Order Processing, Dispatch, Invoicing</td>
+                  <td><span class="badge-status status-badge-active">Active</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           13. SETTINGS VIEW
+           ========================================== -->
+      <section class="view-section" id="view-settings">
+        <div class="view-header">
+          <div class="view-header-title">
+            <h1>Brand & Platform Settings</h1>
+            <p>Brand identity, GST tax rate, password security, and maintenance controls</p>
+          </div>
+          <div class="view-header-actions">
+            <button class="btn-gold" id="btnSaveStoreSettings">Save Settings</button>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(340px, 1fr)); gap:24px;">
+          <!-- Store Profile -->
+          <div class="card-box">
+            <h3 class="card-box-title" style="margin-bottom: 20px;">Store Profile</h3>
+            <div class="form-control-group">
+              <label class="form-control-label">Brand Store Name</label>
+              <input type="text" class="form-input" id="cfgStoreName" value="Comfort Factory">
+            </div>
+            <div class="form-control-group">
+              <label class="form-control-label">Support Email</label>
+              <input type="email" class="form-input" id="cfgSupportEmail" value="support@comfortfactory.com">
+            </div>
+            <div class="form-control-group">
+              <label class="form-control-label">Support Phone</label>
+              <input type="text" class="form-input" id="cfgSupportPhone" value="+91 98765 43210">
+            </div>
+            <div class="form-control-group">
+              <label class="form-control-label">Manufacturing / Return Address</label>
+              <textarea class="form-textarea" id="cfgStoreAddress">Plot 42, Textile District, Tirupur, Tamil Nadu 641602</textarea>
+            </div>
+          </div>
+
+          <!-- Financial & Security -->
+          <div class="card-box">
+            <h3 class="card-box-title" style="margin-bottom: 20px;">Financial & Security</h3>
+            <div class="form-control-group">
+              <label class="form-control-label">Currency Symbol</label>
+              <input type="text" class="form-input" id="cfgCurrency" value="₹ (INR)" readonly>
+            </div>
+            <div class="form-control-group">
+              <label class="form-control-label">GST Tax Rate (%)</label>
+              <input type="number" class="form-input" id="cfgTaxRate" value="12">
+            </div>
+            <div class="form-control-group">
+              <label class="form-control-label">Low Stock Threshold Limit</label>
+              <input type="number" class="form-input" id="cfgLowStockThreshold" value="5">
+            </div>
+            <div style="margin-top: 24px; padding-top: 20px; border-top:1px solid var(--border-subtle);">
+              <h4 style="color:#fff; font-size:0.95rem; margin-bottom:12px;">Admin Password Security</h4>
+              <button type="button" class="btn-secondary-outline" id="btnOpenChangePasswordModal">Update Admin Password</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<!-- ===================================================
+     MODALS SECTION
+     =================================================== -->
+
+<!-- 1. Add / Edit Product Modal -->
+<div class="admin-modal-overlay" id="productModal">
+  <div class="admin-modal">
+    <div class="admin-modal-header">
+      <h3 class="admin-modal-title" id="productModalTitle">Add New Clothing Product</h3>
+      <button class="btn-close-modal" id="closeProductModal">&times;</button>
+    </div>
+    <form id="productForm">
+      <div class="admin-modal-body">
+        <input type="hidden" id="prodEditId">
+        <div class="form-grid-2">
+          <div class="form-control-group">
+            <label class="form-control-label">Product Name *</label>
+            <input type="text" class="form-input" id="prodName" required placeholder="e.g. LINEN CUBAN SHIRT">
+          </div>
+          <div class="form-control-group">
+            <label class="form-control-label">SKU (Stock Keeping Unit)</label>
+            <input type="text" class="form-input" id="prodSku" placeholder="Auto-generated if empty">
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-control-group">
+            <label class="form-control-label">Main Category *</label>
+            <select class="form-select" id="prodCategory" required>
+              <option value="shirts">Shirts</option>
+              <option value="tshirts">T-Shirts</option>
+              <option value="pants">Pants</option>
+            </select>
+          </div>
+          <div class="form-control-group">
+            <label class="form-control-label">Sub-Type Category *</label>
+            <select class="form-select" id="prodSubcategory" required>
+              <!-- Populated based on selected category -->
+            </select>
+          </div>
+        </div>
+
+        <!-- Automatic Discount Calculator Grid -->
+        <div class="form-grid-3">
+          <div class="form-control-group">
+            <label class="form-control-label">Original Price / MRP (₹) *</label>
+            <input type="number" class="form-input" id="prodOriginalPrice" required min="1" placeholder="1499">
+          </div>
+          <div class="form-control-group">
+            <label class="form-control-label">Selling Price (₹) *</label>
+            <input type="number" class="form-input" id="prodPrice" required min="1" placeholder="899">
+          </div>
+          <div class="form-control-group">
+            <label class="form-control-label">Calculated Discount</label>
+            <input type="text" class="form-input" id="prodDiscountDisplay" readonly value="40% OFF" style="color:var(--gold-primary); font-weight:700;">
+          </div>
+        </div>
+
+        <div class="form-control-group">
+          <label class="form-control-label">Product Image URL *</label>
+          <input type="url" class="form-input" id="prodImage" required placeholder="https://images.unsplash.com/...">
+          <div class="image-preview-box" id="prodImagePreview">
+            <span style="color:var(--text-dim); font-size:0.8rem;">Image preview will render here</span>
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-control-group">
+            <label class="form-control-label">Available Sizes (Comma-separated)</label>
+            <input type="text" class="form-input" id="prodSizes" value="S, M, L, XL, XXL">
+          </div>
+          <div class="form-control-group">
+            <label class="form-control-label">Available Colors (Comma-separated)</label>
+            <input type="text" class="form-input" id="prodColors" value="Black, White, Olive">
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-control-group">
+            <label class="form-control-label">Total Aggregated Stock Units</label>
+            <input type="number" class="form-input" id="prodStock" value="35" min="0">
+          </div>
+          <div class="form-control-group">
+            <label class="form-control-label">Badge Label</label>
+            <select class="form-select" id="prodBadge">
+              <option value="New">New Arrival</option>
+              <option value="Bestseller">Bestseller</option>
+              <option value="Trending">Trending</option>
+              <option value="Popular">Popular</option>
+              <option value="Sale">Sale</option>
+              <option value="None">None</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-control-group">
+          <label class="form-control-label">Product Description</label>
+          <textarea class="form-textarea" id="prodDescription" placeholder="Crafted with pure combed cotton for supreme comfort..."></textarea>
+        </div>
+      </div>
+      <div class="admin-modal-footer">
+        <button type="button" class="btn-secondary-outline" id="btnCancelProductModal">Cancel</button>
+        <button type="submit" class="btn-gold" id="btnSaveProduct">Save Product</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- 2. Printable Invoice Modal -->
+<div class="admin-modal-overlay" id="invoiceModal">
+  <div class="admin-modal invoice-modal-content" style="max-width: 840px;">
+    <div class="admin-modal-header btn-print-hide">
+      <h3 class="admin-modal-title">Tax Invoice Preview</h3>
+      <div style="display:flex; gap:10px;">
+        <button type="button" class="btn-gold" id="btnPrintInvoice">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          <span>Print / Save as PDF</span>
+        </button>
+        <button class="btn-close-modal" id="closeInvoiceModal">&times;</button>
+      </div>
+    </div>
+    <div class="admin-modal-body" style="background:#fff; color:#111;">
+      <div class="invoice-container" id="printableInvoiceArea">
+        <!-- Rendered via JS -->
       </div>
     </div>
   </div>
 </div>
 
-<!-- SUCCESS POPUP -->
-<div class="success-overlay" id="success-overlay">
-  <div class="success-modal">
-    <div class="success-icon">✓</div>
-    <h3>Thank You!</h3>
-    <p>Your details have been successfully submitted. We will reach out to you shortly.</p>
-    <button class="btn-close-success" id="btn-close-success">Continue</button>
+<!-- 3. Stock Adjustment Modal -->
+<div class="admin-modal-overlay" id="stockModal">
+  <div class="admin-modal" style="max-width: 440px;">
+    <div class="admin-modal-header">
+      <h3 class="admin-modal-title">Adjust Inventory Stock</h3>
+      <button class="btn-close-modal" id="closeStockModal">&times;</button>
+    </div>
+    <form id="stockForm">
+      <div class="admin-modal-body">
+        <input type="hidden" id="stockProdId">
+        <p style="font-size:0.9rem; color:#fff; margin-bottom:12px;" id="stockProdName">Product</p>
+        <div class="form-control-group">
+          <label class="form-control-label">Current Total Stock Units</label>
+          <input type="number" class="form-input" id="stockNewQty" required min="0">
+        </div>
+        <div class="form-control-group">
+          <label class="form-control-label">Reason for Stock Adjustment</label>
+          <select class="form-select" id="stockReason">
+            <option value="Restock shipment received">Restock shipment received</option>
+            <option value="Physical count inventory audit">Physical count inventory audit</option>
+            <option value="Damaged / QC removal">Damaged / QC removal</option>
+            <option value="Returned inventory restored">Returned inventory restored</option>
+          </select>
+        </div>
+      </div>
+      <div class="admin-modal-footer">
+        <button type="button" class="btn-secondary-outline" id="btnCancelStockModal">Cancel</button>
+        <button type="submit" class="btn-gold">Confirm Adjustment</button>
+      </div>
+    </form>
   </div>
 </div>
 
-<!-- TOAST NOTIFICATION CONTAINER -->
-<div class="toast-container" id="toast-container" aria-live="polite"></div>
+<!-- 4. Create Coupon Modal -->
+<div class="admin-modal-overlay" id="couponModal">
+  <div class="admin-modal" style="max-width: 480px;">
+    <div class="admin-modal-header">
+      <h3 class="admin-modal-title">Create New Promo Coupon</h3>
+      <button class="btn-close-modal" id="closeCouponModal">&times;</button>
+    </div>
+    <form id="couponForm">
+      <div class="admin-modal-body">
+        <div class="form-control-group">
+          <label class="form-control-label">Coupon Code (e.g. LUXURY20)</label>
+          <input type="text" class="form-input" id="couponCode" required style="text-transform:uppercase;">
+        </div>
+        <div class="form-grid-2">
+          <div class="form-control-group">
+            <label class="form-control-label">Discount Type</label>
+            <select class="form-select" id="couponType">
+              <option value="percentage">Percentage (%)</option>
+              <option value="fixed">Fixed Flat (₹)</option>
+            </select>
+          </div>
+          <div class="form-control-group">
+            <label class="form-control-label">Discount Value</label>
+            <input type="number" class="form-input" id="couponValue" required min="1" placeholder="e.g. 20 or 200">
+          </div>
+        </div>
+        <div class="form-grid-2">
+          <div class="form-control-group">
+            <label class="form-control-label">Min Cart Spend (₹)</label>
+            <input type="number" class="form-input" id="couponMinSpend" value="999">
+          </div>
+          <div class="form-control-group">
+            <label class="form-control-label">Expiration Date</label>
+            <input type="date" class="form-input" id="couponExpiry" value="2026-12-31">
+          </div>
+        </div>
+      </div>
+      <div class="admin-modal-footer">
+        <button type="button" class="btn-secondary-outline" id="btnCancelCouponModal">Cancel</button>
+        <button type="submit" class="btn-gold">Publish Coupon</button>
+      </div>
+    </form>
+  </div>
+</div>
 
-<script src="admin/data-store.js"></script>
-<script src="products.js"></script>
-<script src="main.js"></script>
-<script>
-  // Search overlay open/close style toggle
-  const so = document.getElementById('search-overlay');
-  document.getElementById('search-btn').addEventListener('click', () => { so.style.opacity='1'; so.style.visibility='visible'; });
-  document.getElementById('search-close').addEventListener('click', () => { so.style.opacity='0'; so.style.visibility='hidden'; });
+<!-- 5. Change Password Modal -->
+<div class="admin-modal-overlay" id="passwordModal">
+  <div class="admin-modal" style="max-width: 420px;">
+    <div class="admin-modal-header">
+      <h3 class="admin-modal-title">Change Admin Password</h3>
+      <button class="btn-close-modal" id="closePasswordModal">&times;</button>
+    </div>
+    <form id="changePasswordForm">
+      <div class="admin-modal-body">
+        <div class="form-control-group">
+          <label class="form-control-label">Current Password *</label>
+          <input type="password" class="form-input" id="oldPasswordInput" required placeholder="••••••••">
+        </div>
+        <div class="form-control-group">
+          <label class="form-control-label">New Secure Password *</label>
+          <input type="password" class="form-input" id="newPasswordInput" required minlength="6" placeholder="At least 6 characters">
+        </div>
+        <div class="form-control-group">
+          <label class="form-control-label">Confirm New Password *</label>
+          <input type="password" class="form-input" id="confirmNewPasswordInput" required placeholder="Repeat new password">
+        </div>
+      </div>
+      <div class="admin-modal-footer">
+        <button type="button" class="btn-secondary-outline" id="btnCancelPasswordModal">Cancel</button>
+        <button type="submit" class="btn-gold">Update Password</button>
+      </div>
+    </form>
+  </div>
+</div>
 
-  // Close Success Popup
-  document.getElementById('btn-close-success').addEventListener('click', () => {
-    document.getElementById('success-overlay').classList.remove('open');
-  });
-</script>
+<!-- 6. Complete Customer Profile & Orders Modal -->
+<div class="admin-modal-overlay" id="customerDetailsModal">
+  <div class="admin-modal" style="max-width: 820px; width: 94%;">
+    <div class="admin-modal-header" style="border-bottom: 1px solid var(--border-subtle); padding-bottom: 16px;">
+      <div style="display:flex; align-items:center; gap:14px;">
+        <div id="modalCustAvatar" style="width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg, rgba(212, 175, 55, 0.25), rgba(212, 175, 55, 0.05)); border:1.5px solid var(--gold-primary); display:flex; align-items:center; justify-content:center; color:var(--gold-primary); font-family:'Cinzel',serif; font-weight:700; font-size:1.2rem;">
+          C
+        </div>
+        <div>
+          <h3 class="admin-modal-title" id="modalCustFullName" style="font-size:1.25rem; margin-bottom:2px;">Customer Details</h3>
+          <div style="display:flex; align-items:center; gap:10px; font-size:0.8rem; color:var(--text-muted);">
+            <span id="modalCustId" style="font-family:monospace; color:var(--gold-primary);">CUST-000</span>
+            <span>&bull;</span>
+            <span id="modalCustStatusBadge" class="badge-status status-badge-active">ACTIVE</span>
+          </div>
+        </div>
+      </div>
+      <button class="btn-close-modal" id="closeCustomerDetailsModal">&times;</button>
+    </div>
+
+    <div class="admin-modal-body" style="padding-top: 20px;">
+      <!-- Customer KPI Metrics Mini Bar -->
+      <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; margin-bottom:24px;">
+        <div style="background:var(--bg-input); padding:12px 14px; border-radius:8px; border:1px solid var(--border-subtle);">
+          <span style="font-size:0.72rem; text-transform:uppercase; color:var(--text-dim); display:block; font-weight:600;">Total Orders</span>
+          <strong style="font-size:1.2rem; color:#fff;" id="modalCustTotalOrders">0</strong>
+        </div>
+        <div style="background:var(--bg-input); padding:12px 14px; border-radius:8px; border:1px solid var(--border-subtle);">
+          <span style="font-size:0.72rem; text-transform:uppercase; color:var(--text-dim); display:block; font-weight:600;">Lifetime Spend</span>
+          <strong style="font-size:1.2rem; color:var(--gold-primary);" id="modalCustTotalSpent">₹0</strong>
+        </div>
+        <div style="background:var(--bg-input); padding:12px 14px; border-radius:8px; border:1px solid var(--border-subtle);">
+          <span style="font-size:0.72rem; text-transform:uppercase; color:var(--text-dim); display:block; font-weight:600;">Email Verified</span>
+          <strong style="font-size:1rem; color:#10b981;" id="modalCustEmailVerified">Yes</strong>
+        </div>
+        <div style="background:var(--bg-input); padding:12px 14px; border-radius:8px; border:1px solid var(--border-subtle);">
+          <span style="font-size:0.72rem; text-transform:uppercase; color:var(--text-dim); display:block; font-weight:600;">Registered Date</span>
+          <strong style="font-size:0.92rem; color:#fff;" id="modalCustJoinedDate">--</strong>
+        </div>
+      </div>
+
+      <!-- Detail Tabs (Profile, Delivery Addresses, Order History) -->
+      <div style="display:flex; gap:12px; border-bottom:1px solid var(--border-subtle); margin-bottom:18px;">
+        <button type="button" class="cust-detail-tab active" data-tab="tabProfile" style="padding:8px 16px; font-size:0.85rem; font-weight:600; color:var(--gold-primary); background:none; border:none; border-bottom:2px solid var(--gold-primary); cursor:pointer;">
+          Profile Details
+        </button>
+        <button type="button" class="cust-detail-tab" data-tab="tabAddresses" style="padding:8px 16px; font-size:0.85rem; font-weight:600; color:var(--text-muted); background:none; border:none; border-bottom:2px solid transparent; cursor:pointer;">
+          Delivery Addresses (<span id="modalCustAddrCount">0</span>)
+        </button>
+        <button type="button" class="cust-detail-tab" data-tab="tabOrders" style="padding:8px 16px; font-size:0.85rem; font-weight:600; color:var(--text-muted); background:none; border:none; border-bottom:2px solid transparent; cursor:pointer;">
+          Order History (<span id="modalCustOrdersCount">0</span>)
+        </button>
+      </div>
+
+      <!-- Tab Content 1: Profile -->
+      <div id="tabProfile" class="cust-tab-content">
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+          <div>
+            <label style="font-size:0.75rem; text-transform:uppercase; color:var(--text-dim); font-weight:600;">Registered Email</label>
+            <p style="font-size:0.95rem; color:#fff; margin-top:3px;" id="modalCustEmail">--</p>
+          </div>
+          <div>
+            <label style="font-size:0.75rem; text-transform:uppercase; color:var(--text-dim); font-weight:600;">Mobile Number</label>
+            <p style="font-size:0.95rem; color:#fff; margin-top:3px;" id="modalCustPhone">--</p>
+          </div>
+          <div>
+            <label style="font-size:0.75rem; text-transform:uppercase; color:var(--text-dim); font-weight:600;">Default City / State</label>
+            <p style="font-size:0.95rem; color:#fff; margin-top:3px;" id="modalCustCityState">--</p>
+          </div>
+          <div>
+            <label style="font-size:0.75rem; text-transform:uppercase; color:var(--text-dim); font-weight:600;">Last Session Login</label>
+            <p style="font-size:0.95rem; color:#fff; margin-top:3px;" id="modalCustLastLogin">--</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Content 2: Delivery Addresses -->
+      <div id="tabAddresses" class="cust-tab-content" style="display:none;">
+        <div id="modalCustAddressesList" style="display:flex; flex-direction:column; gap:12px; max-height:260px; overflow-y:auto;">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+
+      <!-- Tab Content 3: Orders History -->
+      <div id="tabOrders" class="cust-tab-content" style="display:none;">
+        <div class="table-responsive" style="max-height:280px; overflow-y:auto;">
+          <table class="admin-table" style="font-size:0.82rem;">
+            <thead>
+              <tr>
+                <th>Order #</th>
+                <th>Date</th>
+                <th>Items</th>
+                <th style="text-align:right;">Amount</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="modalCustOrdersTbody">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Footer Actions (Status Toggle, Legal Account Deletion) -->
+    <div class="admin-modal-footer" style="display:flex; justify-content:space-between; align-items:center;">
+      <div style="display:flex; gap:10px;">
+        <button type="button" class="btn-secondary-outline" id="btnModalToggleCustStatus" style="font-size:0.82rem;">
+          Deactivate Account
+        </button>
+        <button type="button" class="btn-danger-outline" id="btnModalDeleteCustomer" style="font-size:0.82rem; color:var(--status-cancelled); border-color:rgba(239, 68, 68, 0.4);">
+          Delete Account
+        </button>
+      </div>
+      <button type="button" class="btn-gold" id="btnModalCloseCustDetails" style="padding:8px 20px;">Done</button>
+    </div>
+  </div>
+</div>
+
+<!-- 7. Admin Audit Logs Modal -->
+<div class="admin-modal-overlay" id="auditLogsModal">
+  <div class="admin-modal" style="max-width: 800px; width: 94%;">
+    <div class="admin-modal-header">
+      <h3 class="admin-modal-title">System & Customer Audit Logs</h3>
+      <button class="btn-close-modal" id="closeAuditLogsModal">&times;</button>
+    </div>
+    <div class="admin-modal-body">
+      <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:14px;">Historical record of administrative actions, account registrations, status changes, and compliance events.</p>
+      <div class="table-responsive" style="max-height:360px; overflow-y:auto;">
+        <table class="admin-table" style="font-size:0.82rem;">
+          <thead>
+            <tr>
+              <th>Timestamp</th>
+              <th>Operator</th>
+              <th>Action</th>
+              <th>Target</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody id="auditLogsTableBody">
+            <!-- Dynamically populated -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="admin-modal-footer">
+      <button type="button" class="btn-gold" id="btnCloseAuditLogsBtn">Close</button>
+    </div>
+  </div>
+</div>
+
+<script src="data-store.js"></script>
+<script src="admin.js"></script>
 </body>
 </html>
