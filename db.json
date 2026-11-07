@@ -1,0 +1,1512 @@
+{
+  "admin_users": [
+    {
+      "id": "usr_super_01",
+      "username": "najwan12@N12",
+      "email": "najwan12@N12",
+      "name": "Najwan (Super Admin)",
+      "role": "superadmin",
+      "salt": "CF_SALT_2026_N12",
+      "passwordHash": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+      "status": "active",
+      "lastLogin": "2026-10-26T10:30:00.000Z",
+      "createdAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "usr_staff_02",
+      "username": "vikram.catalog",
+      "email": "vikram@comfortfactory.com",
+      "name": "Vikram Sethi",
+      "role": "product_manager",
+      "salt": "CF_SALT_2026_N12",
+      "passwordHash": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+      "status": "active",
+      "lastLogin": "2026-10-25T14:15:00.000Z",
+      "createdAt": "2026-02-10T00:00:00.000Z"
+    },
+    {
+      "id": "usr_staff_03",
+      "username": "priya.orders",
+      "email": "priya@comfortfactory.com",
+      "name": "Priya Sharma",
+      "role": "order_manager",
+      "salt": "CF_SALT_2026_N12",
+      "passwordHash": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+      "status": "active",
+      "lastLogin": "2026-10-26T09:00:00.000Z",
+      "createdAt": "2026-03-01T00:00:00.000Z"
+    }
+  ],
+  "categories": {
+    "shirts": {
+      "id": "shirts",
+      "name": "Shirts",
+      "displayOrder": 1,
+      "status": "active",
+      "image": "https://images.unsplash.com/photo-1603252109303-2751441dd157?w=500&h=650&fit=crop&q=80",
+      "description": "Premium handcrafted casual, oversized, and formal shirts crafted for comfort.",
+      "types": [
+        {
+          "id": "casual-shirt",
+          "name": "Casual Shirt",
+          "desc": "Everyday versatile comfort"
+        },
+        {
+          "id": "oversized-shirt",
+          "name": "Oversized Shirt",
+          "desc": "Relaxed, roomy modern silhouette"
+        },
+        {
+          "id": "cuban-collar-shirt",
+          "name": "Cuban Collar Shirt",
+          "desc": "Open camp collar retro style"
+        },
+        {
+          "id": "check-shirt",
+          "name": "Check Shirt",
+          "desc": "Classic patterns & premium weave"
+        },
+        {
+          "id": "denim-shirt",
+          "name": "Denim Shirt",
+          "desc": "Durable washed denim essentials"
+        }
+      ]
+    },
+    "tshirts": {
+      "id": "tshirts",
+      "name": "T-Shirts",
+      "displayOrder": 2,
+      "status": "active",
+      "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&h=650&fit=crop&q=80",
+      "description": "Contemporary streetwear, drop-shoulder, boxy-fit, and heavyweight luxury tees.",
+      "types": [
+        {
+          "id": "oversized-tshirt",
+          "name": "Oversized T-shirt",
+          "desc": "Roomy streetwear aesthetic"
+        },
+        {
+          "id": "drop-shoulder-tshirt",
+          "name": "Drop-Shoulder T-shirt",
+          "desc": "Sloping shoulder relaxed drape"
+        },
+        {
+          "id": "boxy-fit-tshirt",
+          "name": "Boxy-Fit T-shirt",
+          "desc": "Square modern cut"
+        },
+        {
+          "id": "heavyweight-tshirt",
+          "name": "Heavyweight T-shirt",
+          "desc": "Dense, structured premium 240+ GSM fabric"
+        },
+        {
+          "id": "streetwear-tshirt",
+          "name": "Streetwear T-shirt",
+          "desc": "Urban aesthetics and graphics"
+        },
+        {
+          "id": "longline-tshirt",
+          "name": "Longline T-shirt",
+          "desc": "Extended length and curved hem"
+        }
+      ]
+    },
+    "pants": {
+      "id": "pants",
+      "name": "Pants",
+      "displayOrder": 3,
+      "status": "active",
+      "image": "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=500&h=650&fit=crop&q=80",
+      "description": "Modern baggy, wide-leg, cargo, and parachute utility trousers tailored for drape and durability.",
+      "types": [
+        {
+          "id": "baggy-pants",
+          "name": "Baggy Pants",
+          "desc": "Loose and relaxed fit."
+        },
+        {
+          "id": "wide-leg-pants",
+          "name": "Wide-Leg Pants",
+          "desc": "Wide from the waist to the ankle."
+        },
+        {
+          "id": "cargo-pants",
+          "name": "Cargo Pants",
+          "desc": "Pants with multiple pockets."
+        },
+        {
+          "id": "parachute-pants",
+          "name": "Parachute Pants",
+          "desc": "Lightweight, relaxed, sporty style."
+        }
+      ]
+    }
+  },
+  "products": [
+    {
+      "id": "p_003",
+      "sku": "SH-CAS-003",
+      "name": "OXFORD SHIRT MSC1104",
+      "category": "shirts",
+      "subcategory": "casual-shirt",
+      "description": "Signature 100% combed cotton Oxford shirt with button-down collar and mother-of-pearl finish buttons. Tailored for all-day comfort.",
+      "price": 799,
+      "originalPrice": 1299,
+      "discount": 38,
+      "image": "https://images.unsplash.com/photo-1603252109303-2751441dd157?w=500&h=650&fit=crop&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1603252109303-2751441dd157?w=500&h=650&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1598033129183-c4f50c736c10?w=500&h=650&fit=crop&q=80"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "colors": [
+        "White",
+        "Light Blue",
+        "Navy"
+      ],
+      "variantStock": {
+        "S-White": 12,
+        "M-White": 15,
+        "L-White": 8,
+        "XL-White": 4,
+        "XXL-White": 2,
+        "S-Light Blue": 6,
+        "M-Light Blue": 10,
+        "L-Light Blue": 5,
+        "XL-Light Blue": 3,
+        "S-Navy": 8,
+        "M-Navy": 14,
+        "L-Navy": 9,
+        "XL-Navy": 6
+      },
+      "stock": 94,
+      "badge": "Bestseller",
+      "status": "published",
+      "featured": true,
+      "createdAt": "2026-01-10T10:00:00.000Z"
+    },
+    {
+      "id": "p_005",
+      "sku": "SH-CAS-005",
+      "name": "LINEN CASUAL SHIRT MSC1057",
+      "category": "shirts",
+      "subcategory": "casual-shirt",
+      "description": "Pure breathable European flax linen shirt with relaxed collar, garment dyed for effortless elegance.",
+      "price": 999,
+      "originalPrice": 1599,
+      "discount": 38,
+      "image": "https://images.unsplash.com/photo-1598033129183-c4f50c736c10?w=500&h=650&fit=crop&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1598033129183-c4f50c736c10?w=500&h=650&fit=crop&q=80"
+      ],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "Beige",
+        "Olive",
+        "White"
+      ],
+      "variantStock": {
+        "M-Beige": 10,
+        "L-Beige": 6,
+        "XL-Beige": 2,
+        "M-Olive": 8,
+        "L-Olive": 4,
+        "XL-Olive": 1,
+        "M-White": 12,
+        "L-White": 7,
+        "XL-White": 3
+      },
+      "stock": 53,
+      "badge": "Popular",
+      "status": "published",
+      "featured": false,
+      "createdAt": "2026-01-15T11:30:00.000Z"
+    },
+    {
+      "id": "p_sh_01",
+      "sku": "SH-OVR-001",
+      "name": "RELAXED DRAPE OVERSIZED SHIRT",
+      "category": "shirts",
+      "subcategory": "oversized-shirt",
+      "description": "Roomy streetwear silhouette crafted from modal-blend cotton with dropped shoulder seams and curved raw hem.",
+      "price": 1199,
+      "originalPrice": 1899,
+      "discount": 37,
+      "image": "https://images.unsplash.com/photo-1620012253295-c15c429fbb41?w=500&h=650&fit=crop&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1620012253295-c15c429fbb41?w=500&h=650&fit=crop&q=80"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "Sage Green",
+        "Off-White",
+        "Charcoal"
+      ],
+      "variantStock": {
+        "S-Sage Green": 4,
+        "M-Sage Green": 12,
+        "L-Sage Green": 6,
+        "XL-Sage Green": 3,
+        "S-Off-White": 8,
+        "M-Off-White": 14,
+        "L-Off-White": 7,
+        "XL-Off-White": 2,
+        "S-Charcoal": 5,
+        "M-Charcoal": 9,
+        "L-Charcoal": 4,
+        "XL-Charcoal": 1
+      },
+      "stock": 75,
+      "badge": "Trending",
+      "status": "published",
+      "featured": true,
+      "createdAt": "2026-02-01T09:15:00.000Z"
+    },
+    {
+      "id": "p_sh_03",
+      "sku": "SH-CUB-003",
+      "name": "RESORT CUBAN COLLAR SHIRT",
+      "category": "shirts",
+      "subcategory": "cuban-collar-shirt",
+      "description": "Vintage camp-collar shirt with boxy cut and fluid rayon-viscose weave. Perfect for warm evening outings.",
+      "price": 1099,
+      "originalPrice": 1699,
+      "discount": 35,
+      "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=500&h=650&fit=crop&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=500&h=650&fit=crop&q=80"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "Terracotta",
+        "Cream",
+        "Black"
+      ],
+      "variantStock": {
+        "S-Terracotta": 3,
+        "M-Terracotta": 8,
+        "L-Terracotta": 2,
+        "XL-Terracotta": 1,
+        "S-Cream": 6,
+        "M-Cream": 11,
+        "L-Cream": 5,
+        "XL-Cream": 3,
+        "S-Black": 7,
+        "M-Black": 13,
+        "L-Black": 6,
+        "XL-Black": 2
+      },
+      "stock": 67,
+      "badge": "Must Have",
+      "status": "published",
+      "featured": true,
+      "createdAt": "2026-02-05T14:20:00.000Z"
+    },
+    {
+      "id": "p_002",
+      "sku": "SH-CHK-002",
+      "name": "IMPORTED STRIPES & CHECK SHIRT MSC0991",
+      "category": "shirts",
+      "subcategory": "check-shirt",
+      "description": "Yarn-dyed micro check cotton shirt with soft peach finish and durable double-needle stitching.",
+      "price": 899,
+      "originalPrice": 1499,
+      "discount": 40,
+      "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=500&h=650&fit=crop&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=500&h=650&fit=crop&q=80"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "colors": [
+        "Navy Check",
+        "Red Check",
+        "Green Plaid"
+      ],
+      "variantStock": {
+        "S-Navy Check": 5,
+        "M-Navy Check": 9,
+        "L-Navy Check": 4,
+        "XL-Navy Check": 2,
+        "XXL-Navy Check": 1,
+        "S-Red Check": 4,
+        "M-Red Check": 7,
+        "L-Red Check": 3,
+        "XL-Red Check": 2,
+        "S-Green Plaid": 6,
+        "M-Green Plaid": 8,
+        "L-Green Plaid": 5,
+        "XL-Green Plaid": 2
+      },
+      "stock": 58,
+      "badge": "Hot",
+      "status": "published",
+      "featured": false,
+      "createdAt": "2026-02-12T16:00:00.000Z"
+    },
+    {
+      "id": "p_006",
+      "sku": "SH-DEN-006",
+      "name": "VINTAGE WASHED DENIM SHIRT",
+      "category": "shirts",
+      "subcategory": "denim-shirt",
+      "description": "Authentic 6.5 oz ring-spun cotton denim shirt with pearl snap buttons and contrast stitching.",
+      "price": 1099,
+      "originalPrice": 1699,
+      "discount": 35,
+      "image": "https://images.unsplash.com/photo-1589310243389-96a5483213a8?w=500&h=650&fit=crop&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1589310243389-96a5483213a8?w=500&h=650&fit=crop&q=80"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "Medium Blue",
+        "Light Wash"
+      ],
+      "variantStock": {
+        "S-Medium Blue": 2,
+        "M-Medium Blue": 6,
+        "L-Medium Blue": 4,
+        "XL-Medium Blue": 1,
+        "S-Light Wash": 3,
+        "M-Light Wash": 5,
+        "L-Light Wash": 2,
+        "XL-Light Wash": 1
+      },
+      "stock": 24,
+      "badge": "Classic",
+      "status": "published",
+      "featured": false,
+      "createdAt": "2026-02-18T12:00:00.000Z"
+    },
+    {
+      "id": "p_ts_01",
+      "sku": "TS-OVR-001",
+      "name": "MINIMAL OVERSIZED T-SHIRT",
+      "category": "tshirts",
+      "subcategory": "oversized-tshirt",
+      "description": "Ultra-soft 220 GSM combed cotton oversized streetwear tee with ribbed crewneck collar and dropped shoulders.",
+      "price": 699,
+      "originalPrice": 1099,
+      "discount": 36,
+      "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&h=650&fit=crop&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&h=650&fit=crop&q=80"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "colors": [
+        "Jet Black",
+        "Chalk White",
+        "Olive"
+      ],
+      "variantStock": {
+        "S-Jet Black": 15,
+        "M-Jet Black": 25,
+        "L-Jet Black": 18,
+        "XL-Jet Black": 10,
+        "XXL-Jet Black": 5,
+        "S-Chalk White": 12,
+        "M-Chalk White": 20,
+        "L-Chalk White": 14,
+        "XL-Chalk White": 8,
+        "XXL-Chalk White": 4,
+        "S-Olive": 8,
+        "M-Olive": 15,
+        "L-Olive": 10,
+        "XL-Olive": 5
+      },
+      "stock": 164,
+      "badge": "Bestseller",
+      "status": "published",
+      "featured": true,
+      "createdAt": "2026-01-20T08:00:00.000Z"
+    },
+    {
+      "id": "p_ts_03",
+      "sku": "TS-DRP-003",
+      "name": "RAW EDGE DROP-SHOULDER T-SHIRT",
+      "category": "tshirts",
+      "subcategory": "drop-shoulder-tshirt",
+      "description": "Contemporary drape tee with raw cut hem and extended shoulder seams for an effortless silhouette.",
+      "price": 649,
+      "originalPrice": 999,
+      "discount": 35,
+      "image": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=500&h=650&fit=crop&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=500&h=650&fit=crop&q=80"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "Beige",
+        "Mocha",
+        "White"
+      ],
+      "variantStock": {
+        "S-Beige": 6,
+        "M-Beige": 11,
+        "L-Beige": 7,
+        "XL-Beige": 3,
+        "S-Mocha": 5,
+        "M-Mocha": 9,
+        "L-Mocha": 4,
+        "XL-Mocha": 2,
+        "S-White": 8,
+        "M-White": 14,
+        "L-White": 9,
+        "XL-White": 4
+      },
+      "stock": 78,
+      "badge": "Popular",
+      "status": "published",
+      "featured": false,
+      "createdAt": "2026-02-08T10:00:00.000Z"
+    },
+    {
+      "id": "p_ts_05",
+      "sku": "TS-BOX-005",
+      "name": "SQUARE CUT BOXY-FIT TEE",
+      "category": "tshirts",
+      "subcategory": "boxy-fit-tshirt",
+      "description": "Architectural boxy cut t-shirt with shortened torso length and wide chest profile. Clean modern staple.",
+      "price": 749,
+      "originalPrice": 1199,
+      "discount": 38,
+      "image": "https://images.unsplash.com/photo-1527719327859-c6ce80353573?w=500&h=650&fit=crop&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1527719327859-c6ce80353573?w=500&h=650&fit=crop&q=80"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "Cream",
+        "Black",
+        "Dusty Blue"
+      ],
+      "variantStock": {
+        "S-Cream": 4,
+        "M-Cream": 8,
+        "L-Cream": 5,
+        "XL-Cream": 2,
+        "S-Black": 7,
+        "M-Black": 12,
+        "L-Black": 8,
+        "XL-Black": 3,
+        "S-Dusty Blue": 3,
+        "M-Dusty Blue": 6,
+        "L-Dusty Blue": 3,
+        "XL-Dusty Blue": 1
+      },
+      "stock": 62,
+      "badge": "Staff Pick",
+      "status": "published",
+      "featured": true,
+      "createdAt": "2026-02-14T11:45:00.000Z"
+    },
+    {
+      "id": "p_ts_07",
+      "sku": "TS-HVY-007",
+      "name": "260 GSM SOLID HEAVYWEIGHT TEE",
+      "category": "tshirts",
+      "subcategory": "heavyweight-tshirt",
+      "description": "Substantial 260 GSM combed cotton jersey tee. Dense weave, zero transparency, structured drape that maintains shape wash after wash.",
+      "price": 849,
+      "originalPrice": 1399,
+      "discount": 39,
+      "image": "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=500&h=650&fit=crop&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=500&h=650&fit=crop&q=80"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "colors": [
+        "Off-White",
+        "Pitch Black",
+        "Brown"
+      ],
+      "variantStock": {
+        "S-Off-White": 5,
+        "M-Off-White": 10,
+        "L-Off-White": 7,
+        "XL-Off-White": 3,
+        "XXL-Off-White": 2,
+        "S-Pitch Black": 8,
+        "M-Pitch Black": 15,
+        "L-Pitch Black": 9,
+        "XL-Pitch Black": 4,
+        "XXL-Pitch Black": 2,
+        "S-Brown": 3,
+        "M-Brown": 6,
+        "L-Brown": 4,
+        "XL-Brown": 1
+      },
+      "stock": 79,
+      "badge": "Ultra Premium",
+      "status": "published",
+      "featured": true,
+      "createdAt": "2026-02-19T13:20:00.000Z"
+    },
+    {
+      "id": "p_ts_09",
+      "sku": "TS-STR-009",
+      "name": "TOKYO CIPHER STREETWEAR GRAPHIC TEE",
+      "category": "tshirts",
+      "subcategory": "streetwear-tshirt",
+      "description": "High-density puff screenprint graphic on heavy enzyme-washed cotton tee with vintage distressing.",
+      "price": 799,
+      "originalPrice": 1299,
+      "discount": 38,
+      "image": "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?w=500&h=650&fit=crop&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?w=500&h=650&fit=crop&q=80"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "colors": [
+        "Washed Black",
+        "White"
+      ],
+      "variantStock": {
+        "S-Washed Black": 4,
+        "M-Washed Black": 9,
+        "L-Washed Black": 5,
+        "XL-Washed Black": 2,
+        "XXL-Washed Black": 1,
+        "S-White": 3,
+        "M-White": 7,
+        "L-White": 4,
+        "XL-White": 2
+      },
+      "stock": 42,
+      "badge": "Hot",
+      "status": "published",
+      "featured": false,
+      "createdAt": "2026-02-22T15:10:00.000Z"
+    },
+    {
+      "id": "p_ts_11",
+      "sku": "TS-LNG-011",
+      "name": "CURVED HEM ESSENTIAL LONGLINE TEE",
+      "category": "tshirts",
+      "subcategory": "longline-tshirt",
+      "description": "Elongated silhouette with scalloped curved hem. Ideal for layering under hoodies and jackets.",
+      "price": 699,
+      "originalPrice": 1099,
+      "discount": 36,
+      "image": "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=500&h=650&fit=crop&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=500&h=650&fit=crop&q=80"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "Black",
+        "Heather Grey",
+        "White"
+      ],
+      "variantStock": {
+        "S-Black": 5,
+        "M-Black": 10,
+        "L-Black": 6,
+        "XL-Black": 3,
+        "S-Heather Grey": 4,
+        "M-Heather Grey": 7,
+        "L-Heather Grey": 3,
+        "XL-Heather Grey": 1,
+        "S-White": 6,
+        "M-White": 11,
+        "L-White": 5,
+        "XL-White": 2
+      },
+      "stock": 63,
+      "badge": "Essential",
+      "status": "published",
+      "featured": false,
+      "createdAt": "2026-02-25T16:00:00.000Z"
+    },
+    {
+      "id": "p_pt_01",
+      "sku": "PT-BAG-001",
+      "name": "RELAXED COTTON BAGGY PANTS",
+      "category": "pants",
+      "subcategory": "baggy-pants",
+      "description": "Loose relaxed silhouette with elasticated drawstring waist and deep side entry pockets.",
+      "price": 1299,
+      "originalPrice": 1999,
+      "discount": 35,
+      "image": "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=500&h=650&fit=crop&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=500&h=650&fit=crop&q=80"
+      ],
+      "sizes": [
+        "30",
+        "32",
+        "34",
+        "36",
+        "38"
+      ],
+      "colors": [
+        "Khaki",
+        "Black",
+        "Olive"
+      ],
+      "variantStock": {
+        "30-Khaki": 4,
+        "32-Khaki": 8,
+        "34-Khaki": 6,
+        "36-Khaki": 3,
+        "38-Khaki": 1,
+        "30-Black": 6,
+        "32-Black": 12,
+        "34-Black": 8,
+        "36-Black": 4,
+        "38-Black": 2,
+        "30-Olive": 3,
+        "32-Olive": 7,
+        "34-Olive": 4,
+        "36-Olive": 2
+      },
+      "stock": 70,
+      "badge": "Bestseller",
+      "status": "published",
+      "featured": true,
+      "createdAt": "2026-01-25T14:00:00.000Z"
+    },
+    {
+      "id": "p_004",
+      "sku": "PT-BAG-004",
+      "name": "NO FADE BLACK LYCRA DENIM BAGGY PANTS",
+      "category": "pants",
+      "subcategory": "baggy-pants",
+      "description": "Engineered deep stay-black denim with 2% lycra stretch. Guaranteed colorfast through 50 washes.",
+      "price": 1499,
+      "originalPrice": 2199,
+      "discount": 32,
+      "image": "https://images.unsplash.com/photo-1542272604-787c3835535d?w=500&h=650&fit=crop&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1542272604-787c3835535d?w=500&h=650&fit=crop&q=80"
+      ],
+      "sizes": [
+        "28",
+        "30",
+        "32",
+        "34",
+        "36"
+      ],
+      "colors": [
+        "Jet Black",
+        "Charcoal"
+      ],
+      "variantStock": {
+        "28-Jet Black": 2,
+        "30-Jet Black": 6,
+        "32-Jet Black": 9,
+        "34-Jet Black": 5,
+        "36-Jet Black": 2,
+        "28-Charcoal": 1,
+        "30-Charcoal": 4,
+        "32-Charcoal": 6,
+        "34-Charcoal": 3,
+        "36-Charcoal": 1
+      },
+      "stock": 39,
+      "badge": "Popular",
+      "status": "published",
+      "featured": false,
+      "createdAt": "2026-02-03T17:30:00.000Z"
+    },
+    {
+      "id": "p_001",
+      "sku": "PT-WID-001",
+      "name": "LINEN PLEATED WIDE-LEG PANTS MPJ0089",
+      "category": "pants",
+      "subcategory": "wide-leg-pants",
+      "description": "Double pleated front trousers with wide straight leg cut from waistband to hem in luxurious European linen.",
+      "price": 1299,
+      "originalPrice": 1999,
+      "discount": 35,
+      "image": "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=500&h=650&fit=crop&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=500&h=650&fit=crop&q=80"
+      ],
+      "sizes": [
+        "30",
+        "32",
+        "34",
+        "36"
+      ],
+      "colors": [
+        "Natural Cream",
+        "Charcoal Grey",
+        "Olive"
+      ],
+      "variantStock": {
+        "30-Natural Cream": 3,
+        "32-Natural Cream": 7,
+        "34-Natural Cream": 4,
+        "36-Natural Cream": 1,
+        "30-Charcoal Grey": 4,
+        "32-Charcoal Grey": 9,
+        "34-Charcoal Grey": 5,
+        "36-Charcoal Grey": 2,
+        "30-Olive": 2,
+        "32-Olive": 5,
+        "34-Olive": 3,
+        "36-Olive": 1
+      },
+      "stock": 46,
+      "badge": "Bestseller",
+      "status": "published",
+      "featured": true,
+      "createdAt": "2026-02-11T12:00:00.000Z"
+    },
+    {
+      "id": "p_pt_03",
+      "sku": "PT-CRG-003",
+      "name": "6-POCKET TACTICAL CARGO PANTS",
+      "category": "pants",
+      "subcategory": "cargo-pants",
+      "description": "Heavyweight ripstop cotton cargo pants with gusseted thigh pockets, adjustable ankle ties, and reinforced knee panels.",
+      "price": 1399,
+      "originalPrice": 2099,
+      "discount": 33,
+      "image": "https://images.unsplash.com/photo-1517445312882-bc9910d016b7?w=500&h=650&fit=crop&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1517445312882-bc9910d016b7?w=500&h=650&fit=crop&q=80"
+      ],
+      "sizes": [
+        "30",
+        "32",
+        "34",
+        "36",
+        "38"
+      ],
+      "colors": [
+        "Camo Green",
+        "Tactical Black",
+        "Desert Khaki"
+      ],
+      "variantStock": {
+        "30-Camo Green": 3,
+        "32-Camo Green": 6,
+        "34-Camo Green": 4,
+        "36-Camo Green": 2,
+        "30-Tactical Black": 5,
+        "32-Tactical Black": 11,
+        "34-Tactical Black": 7,
+        "36-Tactical Black": 3,
+        "38-Tactical Black": 2,
+        "30-Desert Khaki": 2,
+        "32-Desert Khaki": 5,
+        "34-Desert Khaki": 3
+      },
+      "stock": 53,
+      "badge": "Trending",
+      "status": "published",
+      "featured": true,
+      "createdAt": "2026-02-16T15:30:00.000Z"
+    },
+    {
+      "id": "p_pt_05",
+      "sku": "PT-PAR-005",
+      "name": "RIPSTOP NYLON PARACHUTE PANTS",
+      "category": "pants",
+      "subcategory": "parachute-pants",
+      "description": "Featherlight matte nylon parachute pants with toggle cords at waist and hems. Water-resistant and ultra-breathable.",
+      "price": 1499,
+      "originalPrice": 2299,
+      "discount": 35,
+      "image": "https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=500&h=650&fit=crop&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=500&h=650&fit=crop&q=80"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "Sage Green",
+        "Matte Black",
+        "Silver Grey"
+      ],
+      "variantStock": {
+        "S-Sage Green": 2,
+        "M-Sage Green": 5,
+        "L-Sage Green": 3,
+        "XL-Sage Green": 1,
+        "S-Matte Black": 4,
+        "M-Matte Black": 8,
+        "L-Matte Black": 5,
+        "XL-Matte Black": 2,
+        "S-Silver Grey": 1,
+        "M-Silver Grey": 3,
+        "L-Silver Grey": 2
+      },
+      "stock": 36,
+      "badge": "Staff Pick",
+      "status": "published",
+      "featured": true,
+      "createdAt": "2026-02-20T18:00:00.000Z"
+    }
+  ],
+  "orders": [
+    {
+      "id": "CF-10892",
+      "customerId": "cust_101",
+      "customer_id": "cust_101",
+      "customer": {
+        "name": "Arjun Menon",
+        "email": "arjun.m@gmail.com",
+        "phone": "+91 98450 12345",
+        "address": "Flat 402, Skyline Residency, 12th Main Road, HAL 2nd Stage, Indiranagar",
+        "city": "Bengaluru",
+        "state": "Karnataka",
+        "pincode": "560038"
+      },
+      "items": [
+        {
+          "id": "p_003",
+          "name": "OXFORD SHIRT MSC1104",
+          "size": "L",
+          "color": "Light Blue",
+          "price": 799,
+          "qty": 1,
+          "image": "https://images.unsplash.com/photo-1603252109303-2751441dd157?w=500&h=650&fit=crop&q=80"
+        },
+        {
+          "id": "p_pt_01",
+          "name": "RELAXED COTTON BAGGY PANTS",
+          "size": "34",
+          "color": "Khaki",
+          "price": 1299,
+          "qty": 1,
+          "image": "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=500&h=650&fit=crop&q=80"
+        }
+      ],
+      "subtotal": 2098,
+      "shipping": 0,
+      "discount": 0,
+      "tax": 251.76,
+      "total": 2098,
+      "paymentMethod": "Easebuzz / UPI",
+      "transactionId": "TXN_EB_89327101",
+      "paymentStatus": "Paid",
+      "status": "Delivered",
+      "trackingNumber": "DTDC99281734",
+      "carrier": "DTDC Express",
+      "returnStatus": "none",
+      "date": "2026-10-22T14:35:00.000Z"
+    },
+    {
+      "id": "CF-10893",
+      "customerId": "cust_102",
+      "customer_id": "cust_102",
+      "customer": {
+        "name": "Rohan Deshmukh",
+        "email": "rohan.desh@outlook.com",
+        "phone": "+91 97110 54321",
+        "address": "B-12, Green Glen Layout, Outer Ring Road, Bellandur",
+        "city": "Bengaluru",
+        "state": "Karnataka",
+        "pincode": "560103"
+      },
+      "items": [
+        {
+          "id": "p_ts_01",
+          "name": "MINIMAL OVERSIZED T-SHIRT",
+          "size": "XL",
+          "color": "Jet Black",
+          "price": 699,
+          "qty": 2,
+          "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&h=650&fit=crop&q=80"
+        },
+        {
+          "id": "p_pt_05",
+          "name": "RIPSTOP NYLON PARACHUTE PANTS",
+          "size": "L",
+          "color": "Matte Black",
+          "price": 1499,
+          "qty": 1,
+          "image": "https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=500&h=650&fit=crop&q=80"
+        }
+      ],
+      "subtotal": 2897,
+      "shipping": 0,
+      "discount": 200,
+      "tax": 323.64,
+      "total": 2697,
+      "paymentMethod": "Credit Card (Visa)",
+      "transactionId": "TXN_CC_48102941",
+      "paymentStatus": "Paid",
+      "status": "Shipped",
+      "trackingNumber": "BLR_DELHIVERY_771829",
+      "carrier": "Delhivery",
+      "returnStatus": "none",
+      "date": "2026-10-24T10:12:00.000Z"
+    },
+    {
+      "id": "CF-10894",
+      "customerId": "cust_103",
+      "customer_id": "cust_103",
+      "customer": {
+        "name": "Sneha Roy",
+        "email": "sneha.roy92@gmail.com",
+        "phone": "+91 99031 88722",
+        "address": "Flat 3A, Silver Oak Apts, 24 Gariahat Road, Ballygunge",
+        "city": "Kolkata",
+        "state": "West Bengal",
+        "pincode": "700019"
+      },
+      "items": [
+        {
+          "id": "p_sh_01",
+          "name": "RELAXED DRAPE OVERSIZED SHIRT",
+          "size": "M",
+          "color": "Sage Green",
+          "price": 1199,
+          "qty": 1,
+          "image": "https://images.unsplash.com/photo-1620012253295-c15c429fbb41?w=500&h=650&fit=crop&q=80"
+        }
+      ],
+      "subtotal": 1199,
+      "shipping": 0,
+      "discount": 100,
+      "tax": 131.88,
+      "total": 1099,
+      "paymentMethod": "Google Pay UPI",
+      "transactionId": "TXN_UPI_77109284",
+      "paymentStatus": "Paid",
+      "status": "Confirmed",
+      "trackingNumber": "PENDING_DISPATCH",
+      "carrier": "Blue Dart",
+      "returnStatus": "none",
+      "date": "2026-10-25T16:40:00.000Z"
+    },
+    {
+      "id": "CF-10895",
+      "customerId": "cust_104",
+      "customer_id": "cust_104",
+      "customer": {
+        "name": "Mohammed Zaid",
+        "email": "zaid.m@gmail.com",
+        "phone": "+91 98200 44332",
+        "address": "45 Colaba Causeway, Near Regal Cinema",
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "pincode": "400001"
+      },
+      "items": [
+        {
+          "id": "p_ts_07",
+          "name": "260 GSM SOLID HEAVYWEIGHT TEE",
+          "size": "L",
+          "color": "Pitch Black",
+          "price": 849,
+          "qty": 1,
+          "image": "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=500&h=650&fit=crop&q=80"
+        },
+        {
+          "id": "p_001",
+          "name": "LINEN PLEATED WIDE-LEG PANTS MPJ0089",
+          "size": "32",
+          "color": "Natural Cream",
+          "price": 1299,
+          "qty": 1,
+          "image": "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=500&h=650&fit=crop&q=80"
+        }
+      ],
+      "subtotal": 2148,
+      "shipping": 0,
+      "discount": 0,
+      "tax": 257.76,
+      "total": 2148,
+      "paymentMethod": "Cash on Delivery",
+      "transactionId": "COD_PENDING",
+      "paymentStatus": "Pending",
+      "status": "Pending",
+      "trackingNumber": "",
+      "carrier": "Shadowfax",
+      "returnStatus": "none",
+      "date": "2026-10-26T08:15:00.000Z"
+    }
+  ],
+  "customers": [
+    {
+      "customer_id": "cust_101",
+      "id": "cust_101",
+      "full_name": "Arjun Menon",
+      "name": "Arjun Menon",
+      "email": "arjun.m@gmail.com",
+      "mobile_number": "+91 98450 12345",
+      "phone": "+91 98450 12345",
+      "password_hash": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+      "salt": "CF_CUST_SALT_2026_01",
+      "email_verified": true,
+      "account_status": "active",
+      "status": "active",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pin_code": "560038",
+      "pincode": "560038",
+      "country": "India",
+      "totalOrders": 1,
+      "totalSpent": 2098,
+      "created_at": "2025-11-14T10:00:00.000Z",
+      "joinedDate": "2025-11-14T10:00:00.000Z",
+      "updated_at": "2026-10-22T14:35:00.000Z",
+      "last_login": "2026-10-25T11:20:00.000Z"
+    },
+    {
+      "customer_id": "cust_102",
+      "id": "cust_102",
+      "full_name": "Rohan Deshmukh",
+      "name": "Rohan Deshmukh",
+      "email": "rohan.desh@outlook.com",
+      "mobile_number": "+91 97110 54321",
+      "phone": "+91 97110 54321",
+      "password_hash": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+      "salt": "CF_CUST_SALT_2026_02",
+      "email_verified": true,
+      "account_status": "active",
+      "status": "active",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pin_code": "560103",
+      "pincode": "560103",
+      "country": "India",
+      "totalOrders": 1,
+      "totalSpent": 2697,
+      "created_at": "2026-01-08T15:20:00.000Z",
+      "joinedDate": "2026-01-08T15:20:00.000Z",
+      "updated_at": "2026-10-24T10:12:00.000Z",
+      "last_login": "2026-10-24T09:15:00.000Z"
+    },
+    {
+      "customer_id": "cust_103",
+      "id": "cust_103",
+      "full_name": "Sneha Roy",
+      "name": "Sneha Roy",
+      "email": "sneha.roy92@gmail.com",
+      "mobile_number": "+91 99031 88722",
+      "phone": "+91 99031 88722",
+      "password_hash": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+      "salt": "CF_CUST_SALT_2026_03",
+      "email_verified": true,
+      "account_status": "active",
+      "status": "active",
+      "city": "Kolkata",
+      "state": "West Bengal",
+      "pin_code": "700019",
+      "pincode": "700019",
+      "country": "India",
+      "totalOrders": 1,
+      "totalSpent": 1099,
+      "created_at": "2026-02-19T09:10:00.000Z",
+      "joinedDate": "2026-02-19T09:10:00.000Z",
+      "updated_at": "2026-10-25T16:40:00.000Z",
+      "last_login": "2026-10-25T16:00:00.000Z"
+    },
+    {
+      "customer_id": "cust_104",
+      "id": "cust_104",
+      "full_name": "Mohammed Zaid",
+      "name": "Mohammed Zaid",
+      "email": "zaid.m@gmail.com",
+      "mobile_number": "+91 98200 44332",
+      "phone": "+91 98200 44332",
+      "password_hash": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+      "salt": "CF_CUST_SALT_2026_04",
+      "email_verified": true,
+      "account_status": "active",
+      "status": "active",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "pin_code": "400001",
+      "pincode": "400001",
+      "country": "India",
+      "totalOrders": 1,
+      "totalSpent": 2148,
+      "created_at": "2026-03-01T11:45:00.000Z",
+      "joinedDate": "2026-03-01T11:45:00.000Z",
+      "updated_at": "2026-10-26T08:15:00.000Z",
+      "last_login": "2026-10-26T08:00:00.000Z"
+    },
+    {
+      "customer_id": "cust_105",
+      "id": "cust_105",
+      "full_name": "Aarav Kapoor",
+      "name": "Aarav Kapoor",
+      "email": "aarav.k@yahoo.com",
+      "mobile_number": "+91 98112 33445",
+      "phone": "+91 98112 33445",
+      "password_hash": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+      "salt": "CF_CUST_SALT_2026_05",
+      "email_verified": true,
+      "account_status": "active",
+      "status": "active",
+      "city": "New Delhi",
+      "state": "Delhi",
+      "pin_code": "110001",
+      "pincode": "110001",
+      "country": "India",
+      "totalOrders": 0,
+      "totalSpent": 0,
+      "created_at": "2025-10-05T14:30:00.000Z",
+      "joinedDate": "2025-10-05T14:30:00.000Z",
+      "updated_at": "2026-10-01T10:00:00.000Z",
+      "last_login": "2026-10-20T12:00:00.000Z"
+    },
+    {
+      "customer_id": "cust_905385",
+      "id": "cust_905385",
+      "full_name": "Kavya Patel",
+      "name": "Kavya Patel",
+      "email": "kavya.patel5334@gmail.com",
+      "mobile_number": "+91 98765 43210",
+      "phone": "+91 98765 43210",
+      "password_hash": "e10e223427c078c35d5ea4bc26bb35bb08843c2b9fa9a3a94be2ff8f0a09e3e327f98e62fed77dad9cae205af17bea46b2e902f6be8189e5cab49c2860978386",
+      "salt": "ea047e7c5871e6b9841b94c2d776bb53",
+      "email_verified": false,
+      "verification_otp": "509092",
+      "otp_expires": 1794041817463,
+      "account_status": "active",
+      "status": "active",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pin_code": "560066",
+      "pincode": "560066",
+      "country": "India",
+      "totalOrders": 0,
+      "totalSpent": 0,
+      "created_at": "2026-11-07T08:41:45.385Z",
+      "joinedDate": "2026-11-07T08:41:45.385Z",
+      "updated_at": "2026-11-07T08:41:45.385Z"
+    },
+    {
+      "customer_id": "cust_953129",
+      "id": "cust_953129",
+      "full_name": "Kavya Patel",
+      "name": "Kavya Patel",
+      "email": "kavya.patel3026@gmail.com",
+      "mobile_number": "+91 98765 43210",
+      "phone": "+91 98765 43210",
+      "password_hash": "cf57a2b8310b0283ba0ca67abaf93ab5282eda3c692d501018e0c4a2dd8e60950eae86063ce864a692705c35d1a2d2c6298f6883c62c9b887d1bbd53e5ba4b21",
+      "salt": "69e5d936ab300b7830064c400de73a17",
+      "email_verified": true,
+      "verification_otp": null,
+      "otp_expires": null,
+      "account_status": "active",
+      "status": "active",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pin_code": "560066",
+      "pincode": "560066",
+      "country": "India",
+      "totalOrders": 0,
+      "totalSpent": 0,
+      "created_at": "2026-11-07T08:42:33.130Z",
+      "joinedDate": "2026-11-07T08:42:33.130Z",
+      "updated_at": "2026-11-07T08:42:39.171Z",
+      "last_login": "2026-11-07T08:42:45.234Z"
+    }
+  ],
+  "customer_addresses": [
+    {
+      "address_id": "addr_101_1",
+      "customer_id": "cust_101",
+      "house_name": "Flat 402, Skyline Residency",
+      "street": "12th Main Road",
+      "locality": "HAL 2nd Stage, Indiranagar",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pin_code": "560038",
+      "country": "India",
+      "is_default": true,
+      "created_at": "2025-11-14T10:00:00.000Z",
+      "updated_at": "2025-11-14T10:00:00.000Z"
+    },
+    {
+      "address_id": "addr_102_1",
+      "customer_id": "cust_102",
+      "house_name": "B-12, Green Glen Layout",
+      "street": "Outer Ring Road",
+      "locality": "Bellandur",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pin_code": "560103",
+      "country": "India",
+      "is_default": true,
+      "created_at": "2026-01-08T15:20:00.000Z",
+      "updated_at": "2026-01-08T15:20:00.000Z"
+    },
+    {
+      "address_id": "addr_103_1",
+      "customer_id": "cust_103",
+      "house_name": "Flat 3A, Silver Oak Apts",
+      "street": "24 Gariahat Road",
+      "locality": "Ballygunge",
+      "city": "Kolkata",
+      "state": "West Bengal",
+      "pin_code": "700019",
+      "country": "India",
+      "is_default": true,
+      "created_at": "2026-02-19T09:10:00.000Z",
+      "updated_at": "2026-02-19T09:10:00.000Z"
+    },
+    {
+      "address_id": "addr_104_1",
+      "customer_id": "cust_104",
+      "house_name": "45 Colaba Causeway",
+      "street": "SBS Road",
+      "locality": "Near Regal Cinema, Colaba",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "pin_code": "400001",
+      "country": "India",
+      "is_default": true,
+      "created_at": "2026-03-01T11:45:00.000Z",
+      "updated_at": "2026-03-01T11:45:00.000Z"
+    },
+    {
+      "address_id": "addr_105_1",
+      "customer_id": "cust_105",
+      "house_name": "Plot 18, Block B",
+      "street": "Barakhamba Road",
+      "locality": "Connaught Place",
+      "city": "New Delhi",
+      "state": "Delhi",
+      "pin_code": "110001",
+      "country": "India",
+      "is_default": true,
+      "created_at": "2025-10-05T14:30:00.000Z",
+      "updated_at": "2025-10-05T14:30:00.000Z"
+    },
+    {
+      "address_id": "addr_905385",
+      "customer_id": "cust_905385",
+      "house_name": "Villa 14, Palm Meadows",
+      "street": "Varthur Main Road",
+      "locality": "Whitefield",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pin_code": "560066",
+      "country": "India",
+      "is_default": true,
+      "created_at": "2026-11-07T08:41:45.385Z",
+      "updated_at": "2026-11-07T08:41:45.385Z"
+    },
+    {
+      "address_id": "addr_953130",
+      "customer_id": "cust_953129",
+      "house_name": "Villa 14, Palm Meadows",
+      "street": "Varthur Main Road",
+      "locality": "Whitefield",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pin_code": "560066",
+      "country": "India",
+      "is_default": true,
+      "created_at": "2026-11-07T08:42:33.130Z",
+      "updated_at": "2026-11-07T08:42:33.130Z"
+    }
+  ],
+  "admin_audit_logs": [
+    {
+      "id": "audit_1794040971257_380",
+      "timestamp": "2026-11-07T08:42:51.257Z",
+      "admin_user": "Najwan (Admin)",
+      "action": "GOOGLE_SHEETS_SYNC_ALL",
+      "target_type": "google_sheets",
+      "target_id": "15UoQivVjSo82UWmB-cZo75M2Hquqgzp-pVfEDD2G8QM",
+      "details": "Triggered full Google Sheets sync for all customer records"
+    },
+    {
+      "id": "audit_1794040959171_78",
+      "timestamp": "2026-11-07T08:42:39.171Z",
+      "admin_user": "System",
+      "action": "CUSTOMER_VERIFIED",
+      "target_type": "customer",
+      "target_id": "cust_953129",
+      "details": "Email verified for kavya.patel3026@gmail.com"
+    },
+    {
+      "id": "audit_1794040923474_856",
+      "timestamp": "2026-11-07T08:42:03.474Z",
+      "admin_user": "Najwan (Admin)",
+      "action": "GOOGLE_SHEETS_SYNC_ALL",
+      "target_type": "google_sheets",
+      "target_id": "15UoQivVjSo82UWmB-cZo75M2Hquqgzp-pVfEDD2G8QM",
+      "details": "Triggered full Google Sheets sync for all customer records"
+    },
+    {
+      "id": "audit_001",
+      "timestamp": "2026-10-24T10:15:00.000Z",
+      "admin_user": "Najwan (Super Admin)",
+      "action": "SYSTEM_INIT",
+      "target_type": "system",
+      "target_id": "sys_main",
+      "details": "Customer Authentication & Management Engine Initialized"
+    }
+  ],
+  "coupons": [
+    {
+      "id": "cp_01",
+      "code": "WELCOME10",
+      "type": "percentage",
+      "value": 10,
+      "minSpend": 999,
+      "expiry": "2026-12-31",
+      "usageLimit": 1000,
+      "usageCount": 142,
+      "status": "active"
+    },
+    {
+      "id": "cp_02",
+      "code": "COMFORT20",
+      "type": "percentage",
+      "value": 20,
+      "minSpend": 1999,
+      "expiry": "2026-11-30",
+      "usageLimit": 500,
+      "usageCount": 68,
+      "status": "active"
+    },
+    {
+      "id": "cp_03",
+      "code": "FLAT100",
+      "type": "fixed",
+      "value": 100,
+      "minSpend": 999,
+      "expiry": "2026-12-15",
+      "usageLimit": 200,
+      "usageCount": 45,
+      "status": "active"
+    }
+  ],
+  "inventory_logs": [
+    {
+      "id": "log_101",
+      "timestamp": "2026-10-24T10:15:00.000Z",
+      "productId": "p_ts_01",
+      "productName": "MINIMAL OVERSIZED T-SHIRT",
+      "variant": "XL-Jet Black",
+      "changeQty": -2,
+      "newQty": 10,
+      "reason": "Order #CF-10893 fulfilled",
+      "adminUser": "System"
+    },
+    {
+      "id": "log_102",
+      "timestamp": "2026-10-25T11:00:00.000Z",
+      "productId": "p_003",
+      "productName": "OXFORD SHIRT MSC1104",
+      "variant": "M-White",
+      "changeQty": 15,
+      "newQty": 15,
+      "reason": "Factory restock batch #B901",
+      "adminUser": "Najwan (Super Admin)"
+    }
+  ],
+  "banners": [
+    {
+      "id": "b_01",
+      "title": "Autumn-Winter Luxury Drop",
+      "subtitle": "Architectural Silhouettes & Heavyweight Fabrics",
+      "ctaText": "Explore Collection",
+      "ctaLink": "#product-listing",
+      "image": "image1.jpg",
+      "active": true
+    },
+    {
+      "id": "b_02",
+      "title": "Minimal Elegance Redefined",
+      "subtitle": "European Flax Linen & Combed Cotton Standards",
+      "ctaText": "Shop Shirts",
+      "ctaLink": "#category/shirts",
+      "image": "image2.jpg",
+      "active": true
+    }
+  ],
+  "settings": {
+    "storeName": "Comfort Factory",
+    "tagline": "We Craft What We Sell",
+    "email": "support@comfortfactory.com",
+    "phone": "+91 98765 43210",
+    "address": "Plot 42, Textile District, Tirupur, Tamil Nadu 641602",
+    "currency": "₹",
+    "currencyCode": "INR",
+    "taxRate": 12,
+    "freeShippingThreshold": 999,
+    "standardShippingFee": 55,
+    "lowStockAlertThreshold": 5,
+    "maintenanceMode": false,
+    "announcementMarquee": [
+      "Free Shipping on Orders Above ₹999",
+      "Served Over 2.5 Lakh Customers",
+      "We Craft What We Sell",
+      "All For Your Comfort"
+    ]
+  }
+}
